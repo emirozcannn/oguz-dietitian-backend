@@ -18,10 +18,10 @@ export default async function handler(req, res) {
     try {
       await mongoose.connect(MONGODB_URI);
       
-      const { language = 'tr', limit } = req.query || {};
+      const { language = 'tr', limit, type } = req.query || {};
       
-      // Alt endpoint: /testimonials/approved
-      if (req.url && req.url.includes('approved')) {
+      // Alt endpoint: ?type=approved
+      if (type === 'approved') {
         const query = { status: 'approved', language };
         let testimonials = await Testimonial.find(query);
         if (limit) testimonials = testimonials.slice(0, Number(limit));

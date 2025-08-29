@@ -18,18 +18,18 @@ export default async function handler(req, res) {
     try {
       await mongoose.connect(MONGODB_URI);
       
-      const { language = 'tr' } = req.query || {};
+      const { language = 'tr', type } = req.query || {};
       
-      // Alt endpoint: /packages/home-featured
-      if (req.url && req.url.includes('home-featured')) {
+      // Alt endpoint: ?type=home-featured
+      if (type === 'home-featured') {
         const query = { is_home_featured: true, language };
         const packages = await Package.find(query);
         res.status(200).json(packages);
         return;
       }
       
-      // Alt endpoint: /packages/popular
-      if (req.url && req.url.includes('popular')) {
+      // Alt endpoint: ?type=popular
+      if (type === 'popular') {
         const query = { is_popular: true, language };
         const packages = await Package.find(query);
         res.status(200).json(packages);

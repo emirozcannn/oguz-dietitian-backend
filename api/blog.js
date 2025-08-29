@@ -19,10 +19,10 @@ export default async function handler(req, res) {
     try {
       await mongoose.connect(MONGODB_URI);
       
-      const { language = 'tr', limit, categories } = req.query || {};
+      const { language = 'tr', limit, categories, type } = req.query || {};
       
-      // Alt endpoint: /blog/featured
-      if (req.url && req.url.includes('featured')) {
+      // Alt endpoint: ?type=featured
+      if (type === 'featured') {
         const query = { is_featured: true, language };
         let posts = await Post.find(query);
         if (limit) posts = posts.slice(0, Number(limit));
@@ -30,8 +30,8 @@ export default async function handler(req, res) {
         return;
       }
       
-      // Alt endpoint: /blog/popular
-      if (req.url && req.url.includes('popular')) {
+      // Alt endpoint: ?type=popular
+      if (type === 'popular') {
         const query = { is_popular: true, language };
         let posts = await Post.find(query);
         if (limit) posts = posts.slice(0, Number(limit));
@@ -39,8 +39,8 @@ export default async function handler(req, res) {
         return;
       }
       
-      // Alt endpoint: /blog/published
-      if (req.url && req.url.includes('published')) {
+      // Alt endpoint: ?type=published
+      if (type === 'published') {
         const query = { status: 'published', language };
         if (categories) {
           query.categories = { $in: categories.split(',') };

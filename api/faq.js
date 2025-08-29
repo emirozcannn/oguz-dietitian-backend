@@ -18,8 +18,10 @@ export default async function handler(req, res) {
     try {
       await mongoose.connect(MONGODB_URI);
       
-      // Alt endpoint: /faq/items/public
-      if (req.url && req.url.includes('items/public')) {
+      const { type } = req.query || {};
+      
+      // Alt endpoint: ?type=public
+      if (type === 'public') {
         const publicFaqs = await FAQItem.find({ is_public: true });
         res.status(200).json(publicFaqs);
         return;
