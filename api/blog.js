@@ -18,6 +18,16 @@ export default async function handler(req, res) {
   if (req.method === 'GET') {
     try {
       await mongoose.connect(MONGODB_URI);
+      // Alt endpoint: /blog/featured
+      if (req.url && req.url.includes('featured')) {
+        const { language = 'tr', limit = 3 } = req.query || {};
+        const query = { is_featured: true, language };
+        let posts = await Post.find(query);
+        posts = posts.slice(0, Number(limit));
+        res.status(200).json(posts);
+        return;
+      }
+      // Diğer blog endpointleri
       const posts = await Post.find({});
       res.status(200).json(posts);
     } catch (error) {
