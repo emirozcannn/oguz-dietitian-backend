@@ -18,17 +18,41 @@ export default async function handler(req, res) {
   if (req.method === 'GET') {
     try {
       await mongoose.connect(MONGODB_URI);
+      
+      const { language = 'tr', limit, categories } = req.query || {};
+      
       // Alt endpoint: /blog/featured
       if (req.url && req.url.includes('featured')) {
-        const { language = 'tr', limit = 3 } = req.query || {};
         const query = { is_featured: true, language };
         let posts = await Post.find(query);
-        posts = posts.slice(0, Number(limit));
+        if (limit) posts = posts.slice(0, Number(limit));
         res.status(200).json(posts);
         return;
       }
-      // Diğer blog endpointleri
-      const posts = await Post.find({});
+      
+      // Alt endpoint: /blog/popular
+      if (req.url && req.url.includes('popular')) {
+        const query = { is_popular: true, language };
+        let posts = await Post.find(query);
+        if (limit) posts = posts.slice(0, Number(limit));
+        res.status(200).json(posts);
+        return;
+      }
+      
+      // Alt endpoint: /blog/published
+      if (req.url && req.url.includes('published')) {
+        const query = { status: 'published', language };
+        if (categories) {
+          query.categories = { $in: categories.split(',') };
+        }
+        let posts = await Post.find(query);
+        if (limit) posts = posts.slice(0, Number(limit));
+        res.status(200).json(posts);
+        return;
+      }
+      
+      // Ana blog endpointleri
+      const posts = await Post.find({ language });
       res.status(200).json(posts);
     } catch (error) {
       res.status(500).json({ error: error.message });

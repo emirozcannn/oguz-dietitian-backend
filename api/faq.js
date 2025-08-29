@@ -17,13 +17,15 @@ export default async function handler(req, res) {
   if (req.method === 'GET') {
     try {
       await mongoose.connect(MONGODB_URI);
+      
       // Alt endpoint: /faq/items/public
       if (req.url && req.url.includes('items/public')) {
         const publicFaqs = await FAQItem.find({ is_public: true });
         res.status(200).json(publicFaqs);
         return;
       }
-      // Diğer FAQ endpointleri
+      
+      // Ana FAQ endpointleri
       const faqs = await FAQItem.find({});
       res.status(200).json(faqs);
     } catch (error) {

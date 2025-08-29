@@ -17,17 +17,20 @@ export default async function handler(req, res) {
   if (req.method === 'GET') {
     try {
       await mongoose.connect(MONGODB_URI);
+      
+      const { language = 'tr', limit } = req.query || {};
+      
       // Alt endpoint: /testimonials/approved
       if (req.url && req.url.includes('approved')) {
-        const { language = 'tr', limit } = req.query || {};
         const query = { status: 'approved', language };
         let testimonials = await Testimonial.find(query);
         if (limit) testimonials = testimonials.slice(0, Number(limit));
         res.status(200).json(testimonials);
         return;
       }
-      // Diğer testimonial endpointleri
-      const testimonials = await Testimonial.find({});
+      
+      // Ana testimonials endpointleri
+      const testimonials = await Testimonial.find({ language });
       res.status(200).json(testimonials);
     } catch (error) {
       res.status(500).json({ error: error.message });

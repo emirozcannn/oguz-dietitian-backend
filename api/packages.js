@@ -17,16 +17,27 @@ export default async function handler(req, res) {
   if (req.method === 'GET') {
     try {
       await mongoose.connect(MONGODB_URI);
+      
+      const { language = 'tr' } = req.query || {};
+      
       // Alt endpoint: /packages/home-featured
       if (req.url && req.url.includes('home-featured')) {
-        const { language = 'tr' } = req.query || {};
         const query = { is_home_featured: true, language };
-        let packages = await Package.find(query);
+        const packages = await Package.find(query);
         res.status(200).json(packages);
         return;
       }
-      // Diğer packages endpointleri
-      const packages = await Package.find({});
+      
+      // Alt endpoint: /packages/popular
+      if (req.url && req.url.includes('popular')) {
+        const query = { is_popular: true, language };
+        const packages = await Package.find(query);
+        res.status(200).json(packages);
+        return;
+      }
+      
+      // Ana packages endpointleri
+      const packages = await Package.find({ language });
       res.status(200).json(packages);
     } catch (error) {
       res.status(500).json({ error: error.message });
