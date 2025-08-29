@@ -23,15 +23,15 @@ export default async function handler(req, res) {
       // Alt endpoint: ?type=public
       if (type === 'public') {
         const publicFaqs = await FAQItem.find({ is_public: true });
-        res.status(200).json(publicFaqs);
+        res.status(200).json({ success: true, data: publicFaqs });
         return;
       }
       
       // Ana FAQ endpointleri
       const faqs = await FAQItem.find({});
-      res.status(200).json(faqs);
+      res.status(200).json({ success: true, data: faqs });
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      res.status(500).json({ success: false, error: error.message });
     }
   } else {
     res.status(405).json({ error: 'Method Not Allowed' });

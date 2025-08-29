@@ -23,15 +23,15 @@ export default async function handler(req, res) {
       // Alt endpoint: ?type=public (FAQ categories için)
       if (type === 'public') {
         const categories = await Category.find({ is_active: true }).sort({ order_index: 1 });
-        res.status(200).json(categories);
+        res.status(200).json({ success: true, data: categories });
         return;
       }
       
       // Ana categories endpointleri
       const categories = await Category.find({});
-      res.status(200).json(categories);
+      res.status(200).json({ success: true, data: categories });
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      res.status(500).json({ success: false, error: error.message });
     }
   } else {
     res.status(405).json({ error: 'Method Not Allowed' });

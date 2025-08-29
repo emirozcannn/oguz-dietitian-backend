@@ -26,7 +26,7 @@ export default async function handler(req, res) {
         const query = { is_featured: true, language };
         let posts = await Post.find(query);
         if (limit) posts = posts.slice(0, Number(limit));
-        res.status(200).json(posts);
+        res.status(200).json({ success: true, data: posts });
         return;
       }
       
@@ -35,7 +35,7 @@ export default async function handler(req, res) {
         const query = { is_popular: true, language };
         let posts = await Post.find(query);
         if (limit) posts = posts.slice(0, Number(limit));
-        res.status(200).json(posts);
+        res.status(200).json({ success: true, data: posts });
         return;
       }
       
@@ -47,7 +47,7 @@ export default async function handler(req, res) {
         }
         let posts = await Post.find(query);
         if (limit) posts = posts.slice(0, Number(limit));
-        res.status(200).json(posts);
+        res.status(200).json({ success: true, data: posts });
         return;
       }
       
