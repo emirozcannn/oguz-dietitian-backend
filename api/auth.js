@@ -2,6 +2,9 @@
 export const config = { runtime: 'nodejs' };
 import mongoose from 'mongoose';
 
+// MongoDB URI
+const MONGODB_URI = 'mongodb+srv://emirweb:Emir123456@cluster0.mpsqy.mongodb.net/oguz-dietitian?retryWrites=true&w=majority';
+
 // Basit User Schema - auth.js içinde
 const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
@@ -23,12 +26,10 @@ export default async function handler(req, res) {
     res.status(200).end();
     return;
   }
-
-  const MONGODB_URI = process.env.MONGODB_URI || '';
   
   try {
     await mongoose.connect(MONGODB_URI);
-  } catch (connectError) {
+  } catch (err) {
     return res.status(500).json({ success: false, error: 'Database connection failed' });
   }
 
