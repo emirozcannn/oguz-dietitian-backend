@@ -1,0 +1,2 @@
+Buraya backend projenizdeki route dosyalarını (ör. routes/blog.js, routes/auth.js, vs.) taşıyabilirsiniz.
+Gerçek projede routes/ klasörünü backend/ içine taşıyın ve server.js'de import edin.
