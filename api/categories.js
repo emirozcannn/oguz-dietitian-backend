@@ -17,6 +17,17 @@ export default async function handler(req, res) {
   if (req.method === 'GET') {
     try {
       await mongoose.connect(MONGODB_URI);
+      
+      const { type } = req.query || {};
+      
+      // Alt endpoint: ?type=public (FAQ categories için)
+      if (type === 'public') {
+        const categories = await Category.find({ is_active: true }).sort({ order_index: 1 });
+        res.status(200).json(categories);
+        return;
+      }
+      
+      // Ana categories endpointleri
       const categories = await Category.find({});
       res.status(200).json(categories);
     } catch (error) {
