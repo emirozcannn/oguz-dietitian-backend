@@ -1,4 +1,5 @@
 
+export const config = { runtime: 'nodejs' };
 import mongoose from 'mongoose';
 import Category from '../models/Category.js';
 

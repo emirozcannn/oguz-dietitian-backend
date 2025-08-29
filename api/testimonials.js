@@ -1,4 +1,5 @@
 
+export const config = { runtime: 'nodejs' };
 import mongoose from 'mongoose';
 import Testimonial from '../models/Testimonial.js';
 
