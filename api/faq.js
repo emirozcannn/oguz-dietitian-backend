@@ -3,24 +3,27 @@ export const config = { runtime: 'nodejs' };
 import mongoose from 'mongoose';
 import FAQItem from '../models/FAQItem.js';
 
-// CORS headers
-export function setCors(res) {
+export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-}
 
-export default async function handler(req, res) {
   if (req.method === 'OPTIONS') {
-    setCors(res);
     res.status(200).end();
     return;
   }
-  setCors(res);
+
   const MONGODB_URI = process.env.MONGODB_URI || '';
   if (req.method === 'GET') {
     try {
       await mongoose.connect(MONGODB_URI);
+      // Alt endpoint: /faq/items/public
+      if (req.url && req.url.includes('items/public')) {
+        const publicFaqs = await FAQItem.find({ is_public: true });
+        res.status(200).json(publicFaqs);
+        return;
+      }
+      // Diğer FAQ endpointleri
       const faqs = await FAQItem.find({});
       res.status(200).json(faqs);
     } catch (error) {
