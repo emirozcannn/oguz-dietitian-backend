@@ -61,7 +61,53 @@ export default async function handler(req, res) {
           });
         }
 
-        // User'ı bul (basit, şifre kontrolü yok)
+        // Hardcoded admin users for demo
+        const hardcodedUsers = {
+          'admin@oguzyolyapan.com': {
+            password: 'admin123',
+            user: {
+              id: '000000000000000000000001',
+              email: 'admin@oguzyolyapan.com',
+              firstName: 'Super',
+              lastName: 'Admin',
+              role: 'super_admin'
+            }
+          },
+          'admin@example.com': {
+            password: 'admin123',
+            user: {
+              id: '000000000000000000000002',
+              email: 'admin@example.com',
+              firstName: 'Admin',
+              lastName: 'User',
+              role: 'admin'
+            }
+          },
+          'ayse.demir@example.com': {
+            password: 'user123',
+            user: {
+              id: '000000000000000000000003',
+              email: 'ayse.demir@example.com',
+              firstName: 'Ayşe',
+              lastName: 'Demir',
+              role: 'user'
+            }
+          }
+        };
+
+        // Check hardcoded users first
+        const hardcodedUser = hardcodedUsers[email.toLowerCase()];
+        if (hardcodedUser && hardcodedUser.password === password) {
+          return res.status(200).json({
+            success: true,
+            data: {
+              user: hardcodedUser.user,
+              message: 'Giriş başarılı'
+            }
+          });
+        }
+
+        // Then check database users
         const user = await User.findOne({ email: email.toLowerCase() });
         if (!user) {
           return res.status(401).json({ 
