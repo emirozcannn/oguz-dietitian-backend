@@ -52,6 +52,9 @@
     }
   ],
   "env": {
-    "NODE_ENV": "production"
+    "NODE_ENV": "production",
+    "MONGODB_URI": "mongodb+srv://emirus1214:alper1emir@cluster0.vhvvowo.mongodb.net/oguz-dietitian?retryWrites=true&w=majority&appName=Cluster0",
+    "JWT_SECRET": "oguz-dietitian-super-secret-jwt-key-2025-production-ready",
+    "CORS_ORIGIN": "https://www.oguzyolyapan.com"
   }
 }
