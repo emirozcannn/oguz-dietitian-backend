@@ -1,0 +1,630 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "blog": "Blog",
+    "packages": "Packages",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "appointment": "Online Appointment",
+    "login": "Login",
+    "calculators": "Calculators",
+    "register": "Register",
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "appointments": "Appointments",
+    "plans": "Nutrition Plans",
+    "messages": "Messages",
+    "files": "Files",
+    "cart": "Cart",
+    "checkout": "Checkout",
+    "logout": "Logout"
+  },
+  "hero": {
+    "title": "Expert Dietitian Oğuz Yolyapan",
+    "subtitle": "Master's in Nutrition and Dietetics",
+    "description": "Personalized nutrition plans and professional consulting services for a healthy lifestyle.",
+    "cta": "Book Appointment",
+    "whatsapp": "WhatsApp"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Expert Dietitian",
+    "biography": "Hello, I'm Oğuz Yolyapan. I am an expert dietitian with a Master's degree in Nutrition and Dietetics. I serve my clients with science-based approaches in healthy living and proper nutrition.",
+    "education": "Education",
+    "experience": "Experience",
+    "certifications": "Certifications"
+  },
+  "services": {
+    "title": "My Services",
+    "subtitle": "Professional Nutrition Consulting",
+    "weightLoss": "Weight Loss",
+    "weightGain": "Weight Gain",
+    "sportNutrition": "Sports Nutrition",
+    "medicalNutrition": "Medical Nutrition",
+    "childNutrition": "Child Nutrition",
+    "pregnancyNutrition": "Pregnancy Nutrition"
+  },
+  "packages": {
+    "title": "Packages",
+    "subtitle": "Choose the Right Package for You",
+    "basic": "Basic Package",
+    "premium": "Premium Package",
+    "vip": "VIP Package",
+    "selectPackage": "Select Package",
+    "popular": "Popular"
+  },
+  "testimonials": {
+    "title": "Client Testimonials",
+    "subtitle": "Customer Satisfaction is Our Priority"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Nutrition and Health Articles",
+    "readMore": "Read More",
+    "categories": "Categories",
+    "latestPosts": "Latest Posts",
+    "allPosts": "All Posts",
+    "featuredPosts": "Featured Posts",
+    "popularPosts": "Popular Posts",
+    "searchPlaceholder": "Search blog posts...",
+    "noResults": "No search results found",
+    "readTime": "min read",
+    "publishedOn": "Published on",
+    "author": "Author",
+    "tags": "Tags",
+    "share": "Share",
+    "comments": {
+      "title": "Comments",
+      "count": "comment",
+      "addComment": "Add Comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Your comment",
+      "submit": "Submit Comment",
+      "reply": "Reply",
+      "noComments": "No comments yet. Be the first to comment!",
+      "success": "Your comment has been submitted successfully!",
+      "pending": "Your comment is awaiting moderation.",
+      "ago": "ago"
+    },
+    "newsletter": {
+      "title": "Subscribe to Blog Newsletter",
+      "subtitle": "Enter your email address to stay updated with new articles",
+      "placeholder": "Your email address",
+      "subscribe": "Subscribe",
+      "success": "Successfully subscribed!"
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "What You're Wondering About",
+    "contact": {
+      "title": "Have Other Questions?",
+      "subtitle": "Contact us about topics you're curious about",
+      "button": "Get in Touch"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Get in Touch with Us",
+    "form": {
+      "name": "Full Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message",
+      "send": "Send"
+    },
+    "info": {
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "hours": "Working Hours"
+    }
+  },
+  "appointment": {
+    "title": "Online Appointment",
+    "subtitle": "Book an appointment with expert dietitian Oğuz Yolyapan",
+    "description": "You can easily book an appointment by selecting the most suitable date and time for you. Your appointment duration is 45 minutes and will be conducted via video conference.",
+    "steps": {
+      "step1": "Select Appointment Type",
+      "step2": "Select Date & Time",
+      "step3": "Enter Your Information",
+      "step4": "Appointment Confirmation"
+    },
+    "appointmentTypes": {
+      "title": "Appointment Type",
+      "firstConsultation": "First Consultation",
+      "followUp": "Follow-up Appointment",
+      "nutritionPlan": "Nutrition Plan",
+      "sportNutrition": "Sports Nutrition",
+      "medicalNutrition": "Medical Nutrition",
+      "childNutrition": "Child Nutrition"
+    },
+    "form": {
+      "personalInfo": "Personal Information",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone",
+      "age": "Age",
+      "gender": "Gender",
+      "male": "Male",
+      "female": "Female",
+      "weight": "Weight (kg)",
+      "height": "Height (cm)",
+      "healthConditions": "Health Conditions",
+      "medications": "Medications",
+      "allergies": "Allergies",
+      "dietaryPreferences": "Dietary Preferences",
+      "goals": "Your Goals",
+      "additionalNotes": "Additional Notes"
+    },
+    "timeSlots": {
+      "morning": "Morning",
+      "afternoon": "Afternoon",
+      "evening": "Evening",
+      "available": "Available",
+      "booked": "Booked",
+      "selectTime": "Select Time"
+    },
+    "calendar": {
+      "selectDate": "Select Date",
+      "today": "Today",
+      "tomorrow": "Tomorrow",
+      "nextWeek": "Next Week",
+      "noAvailableSlots": "No available slots for this date"
+    },
+    "confirmation": {
+      "title": "Appointment Confirmation",
+      "summary": "Appointment Summary",
+      "type": "Appointment Type",
+      "date": "Date",
+      "time": "Time",
+      "duration": "Duration",
+      "price": "Price",
+      "paymentMethod": "Payment Method",
+      "creditCard": "Credit Card",
+      "bankTransfer": "Bank Transfer",
+      "payAtAppointment": "Pay at Appointment",
+      "terms": "I accept the appointment terms",
+      "privacyPolicy": "I accept the privacy policy",
+      "confirmButton": "Confirm Appointment",
+      "cancelButton": "Cancel"
+    },
+    "success": {
+      "title": "Appointment Successfully Created!",
+      "message": "Your appointment has been successfully created. Appointment details have been sent to your email address.",
+      "appointmentId": "Appointment ID",
+      "joinLink": "Appointment Link",
+      "calendarButton": "Add to Calendar",
+      "dashboardButton": "Go to Dashboard"
+    },
+    "pricing": {
+      "firstConsultation": "₺350",
+      "followUp": "₺250",
+      "nutritionPlan": "₺400",
+      "sportNutrition": "₺300",
+      "medicalNutrition": "₺450",
+      "childNutrition": "₺300"
+    },
+    "errors": {
+      "selectType": "Please select appointment type",
+      "selectDate": "Please select date",
+      "selectTime": "Please select time",
+      "fillRequired": "Please fill all required fields",
+      "invalidEmail": "Invalid email address",
+      "invalidPhone": "Invalid phone number",
+      "acceptTerms": "You must accept the appointment terms",
+      "bookingFailed": "Appointment could not be created. Please try again."
+    }
+  },
+  "calculators": {
+    "title": "Calculators",
+    "subtitle": "Health Calculators",
+    "bmi": {
+      "title": "BMI Calculator",
+      "description": "Calculate your body mass index",
+      "height": "Height (cm)",
+      "weight": "Weight (kg)",
+      "calculate": "Calculate",
+      "result": "Result"
+    },
+    "bmr": {
+      "title": "BMR Calculator",
+      "description": "Calculate your basal metabolic rate",
+      "age": "Age",
+      "gender": "Gender",
+      "male": "Male",
+      "female": "Female",
+      "activity": "Activity Level",
+      "sedentary": "Sedentary",
+      "light": "Lightly Active",
+      "moderate": "Moderately Active",
+      "active": "Active",
+      "veryActive": "Very Active"
+    },
+    "calorie": {
+      "title": "Calorie Calculator",
+      "description": "Estimate your daily calorie needs",
+      "activity": "Activity Level",
+      "sedentary": "Sedentary",
+      "light": "Lightly Active",
+      "moderate": "Moderately Active",
+      "active": "Active",
+      "veryActive": "Very Active"
+    },
+    "water": {
+      "title": "Water Intake Calculator",
+      "description": "Calculate your daily water needs",
+      "climate": "Climate",
+      "normal": "Normal",
+      "hot": "Hot",
+      "cold": "Cold"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "subtitle": "Login to access your client panel",
+      "email": "Email",
+      "password": "Password",
+      "remember": "Remember me",
+      "forgotPassword": "Forgot password",
+      "loginButton": "Login",
+      "noAccount": "Don't have an account?",
+      "signupLink": "Sign up",
+      "errors": {
+        "invalidCredentials": "Invalid email or password",
+        "emailRequired": "Email is required",
+        "passwordRequired": "Password is required",
+        "passwordTooShort": "Password must be at least 6 characters",
+        "emailNotConfirmed": "You need to verify your email address",
+        "tooManyRequests": "Too many attempts. Please try again later",
+        "networkError": "Network error. Please try again."
+      },
+      "emailPlaceholder": "example@email.com",
+      "passwordPlaceholder": "Enter your password"
+    },
+    "signup": {
+      "title": "Sign Up",
+      "subtitle": "Create a new account and benefit from our services",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "birthDate": "Birth Date",
+      "gender": "Gender",
+      "male": "Male",
+      "female": "Female",
+      "terms": "I accept the terms of use",
+      "privacy": "I accept the privacy policy",
+      "signupButton": "Sign Up",
+      "hasAccount": "Already have an account?",
+      "loginLink": "Login",
+      "errors": {
+        "firstNameRequired": "First name is required",
+        "lastNameRequired": "Last name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Invalid email format",
+        "phoneRequired": "Phone is required",
+        "passwordRequired": "Password is required",
+        "passwordMinLength": "Password must be at least 8 characters",
+        "passwordsNotMatch": "Passwords do not match",
+        "termsRequired": "You must accept the terms of use",
+        "emailExists": "This email address is already registered",
+        "networkError": "Network error. Please try again."
+      }
+    },
+    "resetPassword": {
+      "title": "Reset Password",
+      "subtitle": "We'll send you a password reset link",
+      "email": "Email",
+      "sendButton": "Send Link",
+      "backToLogin": "Back to login",
+      "success": "Password reset link has been sent to your email address",
+      "errors": {
+        "emailNotFound": "This email address is not registered",
+        "networkError": "Network error. Please try again."
+      }
+    }
+  },
+  "dashboard": {
+    "welcome": "Welcome",
+    "stats": {
+      "appointments": "Appointments",
+      "plans": "Plans",
+      "messages": "Messages",
+      "progress": "Progress"
+    },
+    "recentActivity": "Recent Activity",
+    "upcomingAppointments": "Upcoming Appointments",
+    "noAppointments": "No upcoming appointments",
+    "bookAppointment": "Book Appointment"
+  },
+  "admin": {
+    "title": "Admin Panel",
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "appointments": "Appointments",
+    "blog": "Blog Management",
+    "packages": "Package Management",
+    "messages": "Messages",
+    "settings": "Settings"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "reset": "Reset",
+    "submit": "Submit",
+    "required": "Required",
+    "optional": "Optional",
+    "yes": "Yes",
+    "no": "No",
+    "or": "or",
+    "and": "and",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password"
+  },
+  "cart": {
+    "title": "My Cart",
+    "subtitle": "Selected Services",
+    "empty": "Cart is empty",
+    "emptyMessage": "No services added to your cart yet.",
+    "continueShopping": "Browse Services",
+    "item": "Item",
+    "quantity": "Quantity",
+    "price": "Price",
+    "total": "Total",
+    "subtotal": "Subtotal",
+    "tax": "Tax",
+    "discount": "Discount",
+    "grandTotal": "Grand Total",
+    "remove": "Remove",
+    "update": "Update",
+    "checkout": "Checkout",
+    "addToCart": "Add to Cart",
+    "added": "Added to Cart",
+    "couponCode": "Coupon Code",
+    "applyCoupon": "Apply Coupon",
+    "couponApplied": "Coupon applied",
+    "invalidCoupon": "Invalid coupon code",
+    "items": "items",
+    "estimatedTotal": "Estimated Total"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "subtitle": "Secure Payment",
+    "steps": {
+      "step1": "Order Summary",
+      "step2": "Delivery Information",
+      "step3": "Payment Method",
+      "step4": "Confirmation"
+    },
+    "orderSummary": {
+      "title": "Order Summary",
+      "items": "Items",
+      "shipping": "Shipping",
+      "tax": "Tax",
+      "total": "Total",
+      "free": "Free"
+    },
+    "billingInfo": {
+      "title": "Billing Information",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "city": "City",
+      "state": "State",
+      "zipCode": "ZIP Code",
+      "country": "Country",
+      "company": "Company",
+      "taxNumber": "Tax Number",
+      "sameAsShipping": "Same as shipping address"
+    },
+    "shippingInfo": {
+      "title": "Shipping Information",
+      "method": "Shipping Method",
+      "standard": "Standard Shipping",
+      "express": "Express Shipping",
+      "digital": "Digital Delivery",
+      "pickup": "Pickup",
+      "notes": "Shipping Notes"
+    },
+    "payment": {
+      "title": "Payment Method",
+      "method": "Select Payment Method",
+      "creditCard": "Credit Card",
+      "debitCard": "Debit Card",
+      "paypal": "PayPal",
+      "bankTransfer": "Bank Transfer",
+      "applePay": "Apple Pay",
+      "googlePay": "Google Pay",
+      "installments": "Installment Options",
+      "singlePayment": "Single Payment",
+      "cardNumber": "Card Number",
+      "expiryDate": "Expiry Date",
+      "cvv": "CVV",
+      "cardHolder": "Cardholder Name",
+      "saveCard": "Save card",
+      "securePayment": "Secure Payment",
+      "ssl": "SSL Protected"
+    },
+    "confirmation": {
+      "title": "Order Confirmation",
+      "orderNumber": "Order Number",
+      "orderDate": "Order Date",
+      "paymentMethod": "Payment Method",
+      "total": "Total Amount",
+      "status": "Status",
+      "estimatedDelivery": "Estimated Delivery",
+      "trackOrder": "Track Order",
+      "continueService": "Continue Service",
+      "printReceipt": "Print Receipt",
+      "sendReceipt": "Send Receipt via Email"
+    },
+    "terms": {
+      "accept": "I accept the terms",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "refund": "Refund Policy",
+      "required": "Required field"
+    },
+    "buttons": {
+      "placeOrder": "Place Order",
+      "processing": "Processing...",
+      "backToCart": "Back to Cart",
+      "continue": "Continue",
+      "edit": "Edit",
+      "change": "Change"
+    },
+    "errors": {
+      "required": "This field is required",
+      "invalidEmail": "Invalid email address",
+      "invalidPhone": "Invalid phone number",
+      "invalidCard": "Invalid card number",
+      "invalidExpiry": "Invalid expiry date",
+      "invalidCvv": "Invalid CVV",
+      "paymentFailed": "Payment failed",
+      "networkError": "Network error",
+      "tryAgain": "Try again"
+    },
+    "success": {
+      "title": "Payment Successful!",
+      "message": "Your order has been successfully placed. Details have been sent to your email.",
+      "orderNumber": "Order Number",
+      "nextSteps": "Next Steps",
+      "support": "For Support"
+    }
+  },
+  "footer": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "rights": "All rights reserved.",
+    "description": "Professional nutrition consulting for healthy living",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "followUs": "Follow Us",
+    "newsletter": "Newsletter",
+    "newsletterText": "Stay updated with health and nutrition information",
+    "subscribe": "Subscribe",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
+  },
+  "aboutPage": {
+    "seo": {
+      "title": "Who is Oğuz Yolyapan? - Dietitian",
+      "description": "Learn about Dietitian Oğuz Yolyapan. Trakya University graduate, nutrition and dietetics specialist."
+    },
+    "hero": {
+      "title": "Who is Oğuz Yolyapan?",
+      "subtitle": "Nutrition and Dietetics Specialist",
+      "badge1": "Dietitian",
+      "badge2": "Master's Degree",
+      "badge3": "Nutrition Expert",
+      "imageAlt": "Dietitian Oğuz Yolyapan"
+    },
+    "intro": {
+      "title": "About Me",
+      "lead": "Hello! I'm Oğuz YOLYAPAN, a 2020 graduate of Trakya University Nutrition and Dietetics Department. My passion for my profession is shaped by my belief that nutrition reflects our lives.",
+      "detail1": "As nutrition science is a constantly evolving field, I strive to stay up-to-date by regularly following international sources and domestic conferences.",
+      "detail2": "During my undergraduate studies, my interest in metabolism led me to pursue a master's degree at Trakya University Medical Biochemistry Department. In this process, I had the opportunity to examine the metabolic processes of macro and micronutrients at the cellular level."
+    },
+    "quote": {
+      "imageAlt": "Oğuz Yolyapan",
+      "text": "Good nutrition is one of the most tangible indicators of the value a person gives to themselves.",
+      "author": "Oğuz Yolyapan",
+      "role": "Nutrition and Dietetics Specialist"
+    },
+    "experience": {
+      "title": "Professional Experience",
+      "lead": "My educational journey and professional development",
+      "card1": {
+        "imageAlt": "Clinical Experience",
+        "title": "Clinical Experience",
+        "text": "Thanks to my biochemistry knowledge, I develop diet approaches suitable for my clients' metabolism."
+      },
+      "card2": {
+        "imageAlt": "Academic Development",
+        "title": "Academic Development",
+        "text": "During my education, I attended many local and international symposiums and conferences."
+      },
+      "card3": {
+        "imageAlt": "Laboratory Work",
+        "title": "Laboratory Work",
+        "text": "During my master's, I worked in state laboratories and polyclinics."
+      }
+    },
+    "education": {
+      "title": "My Education",
+      "lead": "My academic background and education process",
+      "card1": {
+        "imageAlt": "Bachelor's Degree",
+        "title": "Bachelor's Degree",
+        "university": "Trakya University",
+        "fieldLabel": "Field:",
+        "field": "Nutrition and Dietetics Department",
+        "yearLabel": "Year:",
+        "year": "2016 - 2020",
+        "thesisLabel": "Graduation Thesis:",
+        "thesis": "Use of Raspberry and Blackberry Anthocyanins as Therapeutics in Colorectal Cancer: A Review"
+      },
+      "card2": {
+        "imageAlt": "Master's Degree",
+        "title": "Master's Degree",
+        "university": "Trakya University",
+        "fieldLabel": "Field:",
+        "field": "Medical Biochemistry",
+        "yearLabel": "Year:",
+        "year": "2020 - 2022",
+        "thesisLabel": "Graduation Thesis:",
+        "thesis": "The Effect of Eucalyptol on Palmitate-Induced Cellular Hepatotoxicity in Human-Derived Hepatoma Cells"
+      }
+    },
+    "thesis": {
+      "title": "Thesis Information",
+      "lead": "My thesis examines the effects of eucalyptol on cellular hepatotoxicity.",
+      "thesisTitle": "The Effect of Eucalyptol on Palmitate-Induced Cellular Hepatotoxicity in Human-Derived Hepatoma Cells",
+      "downloadText": "Click to download my thesis!",
+      "downloadBtn": "Download Thesis",
+      "highlight": "Scientific research, real impact!"
+    },
+    "visionMission": {
+      "title": "Vision & Mission",
+      "lead": "My values for a healthy life",
+      "card1": {
+        "imageAlt": "Vision",
+        "title": "My Vision",
+        "text": "By closely following scientific studies, I help my clients achieve their own weight control with the nutrition knowledge I provide. I teach the basics of nutrition science."
+      },
+      "card2": {
+        "imageAlt": "Mission",
+        "title": "My Mission",
+        "text": "As an expert dietitian, my mission is to help my clients reach their healthiest bodies and teach them the fundamentals of nutrition science."
+      }
+    },
+    "cta": {
+      "title": "Start Your Healthy Nutrition Journey",
+      "lead": "Achieve your goals with expert dietitian support",
+      "appointmentBtn": "Book Appointment",
+      "contactBtn": "Contact"
+    }
+  }
+}

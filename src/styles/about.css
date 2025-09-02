@@ -1,0 +1,736 @@
+/* About page - Elegant & Professional Design */
+.about-page {
+  font-family: inherit;
+}
+
+.min-vh-50 {
+  min-height: 50vh;
+}
+
+/* Hero Section */
+.bg-success {
+  background: linear-gradient(135deg, #198754 0%, #20c997 100%) !important;
+}
+
+/* Profile Image */
+.profile-image {
+  border-radius: 50%;
+  border: 6px solid rgba(255,255,255,0.3);
+  transition: all 0.3s ease;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+/* Cards */
+.card {
+  transition: all 0.3s ease;
+  border: none;
+  border-radius: 12px;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* Specialty Icons */
+.specialty-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--bs-success);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: white;
+  margin: 0 auto 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(25, 135, 84, 0.2);
+}
+
+.specialty-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 30px rgba(25, 135, 84, 0.3);
+}
+
+/* Section Spacing */
+.section-spacing {
+  padding: 4rem 0;
+}
+
+/* Buttons */
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Typography */
+.text-success {
+  color: var(--bs-success) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-image {
+    width: 250px !important;
+    height: 250px !important;
+  }
+  
+  .section-spacing {
+    padding: 3rem 0;
+  }
+  
+  .specialty-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .profile-image {
+    width: 200px !important;
+    height: 200px !important;
+  }
+  
+  .section-spacing {
+    padding: 2rem 0;
+  }
+  
+  .specialty-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
+.about-hero {
+  background: linear-gradient(135deg, #198754 0%, #20c997 50%, #0f5132 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,255,255,0.1)"><polygon points="0,0 1000,0 1000,100 0,80"/></svg>');
+  background-size: cover;
+  background-position: bottom;
+  animation: heroFloat 6s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.about-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.about-hero h1 {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
+}
+
+.about-hero .lead {
+  color: rgba(255,255,255,0.9);
+  font-size: 1.3rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.about-hero .badge {
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.about-hero .badge:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* ==========================================================================
+   Profile Image
+   ========================================================================== */
+
+.profile-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid rgba(255,255,255,0.3);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.profile-image:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+}
+
+.profile-badge {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #ffc107 0%, #ff8c00 100%);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4);
+  border: 3px solid white;
+  transition: all 0.3s ease;
+  animation: badgePulse 2s infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.profile-badge:hover {
+  transform: scale(1.2);
+  box-shadow: 0 10px 30px rgba(255, 193, 7, 0.6);
+}
+
+/* ==========================================================================
+   Content Cards
+   ========================================================================== */
+
+.about-card {
+  background: white;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.about-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #198754, #20c997);
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.about-card .card-body {
+  padding: 3rem;
+}
+
+.about-card h2 {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.about-card p {
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   Quote Section
+   ========================================================================== */
+
+.quote-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 20px;
+  padding: 3rem;
+  margin: 3rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(25,135,84,0.05) 0%, transparent 70%);
+  animation: quotePulse 4s ease-in-out infinite;
+}
+
+@keyframes quotePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.quote-icon {
+  font-size: 3rem;
+  color: #198754;
+  margin-bottom: 1rem;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+.quote-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #495057;
+  font-style: italic;
+  line-height: 1.6;
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   Image Cards
+   ========================================================================== */
+
+.image-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.image-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.image-card img {
+  transition: transform 0.3s ease;
+}
+
+.image-card:hover img {
+  transform: scale(1.05);
+}
+
+.image-card h5 {
+  font-weight: 700;
+}
+
+.image-card p {
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Specialty Cards
+   ========================================================================== */
+
+.specialty-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.specialty-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.specialty-icon {
+  background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+  color: white;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 8px 20px rgba(25, 135, 84, 0.3);
+}
+
+.specialty-card h4 {
+  color: #198754;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Credential Cards
+   ========================================================================== */
+
+.credential-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.credential-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.credential-header {
+  height: 200px;
+  overflow: hidden;
+}
+
+.credential-header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.credential-card:hover .credential-header img {
+  transform: scale(1.05);
+}
+
+/* Thesis Download Button */
+.thesis-download {
+  margin-top: 1rem;
+}
+
+.thesis-download .btn {
+  border-radius: 25px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: 2px solid #198754;
+}
+
+.thesis-download .btn:hover {
+  background: #198754;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(25, 135, 84, 0.3);
+}
+
+.thesis-download .btn i {
+  transition: transform 0.3s ease;
+}
+
+.thesis-download .btn:hover i {
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Approach Section
+   ========================================================================== */
+
+.approach-item {
+  padding: 1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.approach-item:hover {
+  background: rgba(25, 135, 84, 0.05);
+  transform: translateX(5px);
+}
+
+.approach-item h6 {
+  color: #198754;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Stats Section
+   ========================================================================== */
+
+.stat-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.stat-icon {
+  background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto 1rem;
+  box-shadow: 0 8px 20px rgba(25, 135, 84, 0.3);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #198754;
+  margin: 1rem 0 0.5rem;
+}
+
+.stat-label {
+  color: #6c757d;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ==========================================================================
+   CTA Section
+   ========================================================================== */
+
+.cta-section {
+  background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 70%);
+}
+
+.cta-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-section h2 {
+  color: white;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.cta-section .lead {
+  color: rgba(255,255,255,0.9);
+  font-size: 1.2rem;
+}
+
+.cta-buttons .btn {
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: 2px solid;
+}
+
+.cta-buttons .btn-success {
+  background: white;
+  color: #198754;
+  border-color: white;
+}
+
+.cta-buttons .btn-success:hover {
+  background: #198754;
+  color: white;
+  border-color: #198754;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.cta-buttons .btn-outline-success {
+  background: transparent;
+  color: white;
+  border-color: rgba(255,255,255,0.7);
+}
+
+.cta-buttons .btn-outline-success:hover {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border-color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .about-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .about-hero .lead {
+    font-size: 1.1rem;
+  }
+  
+  .profile-image {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .about-card .card-body {
+    padding: 2rem;
+  }
+  
+  .quote-section {
+    padding: 2rem;
+  }
+  
+  .quote-text {
+    font-size: 1.2rem;
+  }
+  
+  .specialty-card,
+  .credential-card,
+  .stat-card {
+    padding: 1.5rem;
+  }
+  
+  .specialty-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-buttons .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .profile-image {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .about-card .card-body {
+    padding: 1.5rem;
+  }
+  
+  .quote-section {
+    padding: 1.5rem;
+  }
+  
+  .quote-text {
+    font-size: 1.1rem;
+  }
+  
+  .specialty-card,
+  .credential-card,
+  .stat-card {
+    padding: 1rem;
+  }
+  
+  .specialty-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .stat-number {
+    font-size: 1.8rem;
+  }
+}
+
+/* ==========================================================================
+   Accessibility & Focus States
+   ========================================================================== */
+
+.btn:focus,
+.image-card:focus,
+.credential-card:focus,
+.specialty-card:focus,
+.stat-card:focus {
+  outline: 2px solid #198754;
+  outline-offset: 2px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+  .about-hero,
+  .cta-section {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .btn {
+    border: 2px solid #198754 !important;
+    color: #198754 !important;
+    background: white !important;
+  }
+}

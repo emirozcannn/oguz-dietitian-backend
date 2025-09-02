@@ -1,0 +1,630 @@
+{
+  "nav": {
+    "home": "Anasayfa",
+    "about": "Hakkımda",
+    "blog": "Blog",
+    "packages": "Paketler",
+    "faq": "SSS",
+    "contact": "İletişim",
+    "appointment": "Online Randevu",
+    "login": "Giriş Yap",
+    "calculators": "Hesaplayıcılar",
+    "register": "Kayıt Ol",
+    "dashboard": "Dashboard",
+    "profile": "Profil",
+    "appointments": "Randevular",
+    "plans": "Beslenme Planları",
+    "messages": "Mesajlar",
+    "files": "Dosyalar",
+    "cart": "Sepet",
+    "checkout": "Ödeme",
+    "logout": "Çıkış"
+  },
+  "hero": {
+    "title": "Uzman Diyetisyen Oğuz Yolyapan",
+    "subtitle": "Beslenme ve Diyet Yüksek Lisans",
+    "description": "Sağlıklı yaşam için kişiselleştirilmiş beslenme planları ve profesyonel danışmanlık hizmetleri.",
+    "cta": "Randevu Al",
+    "whatsapp": "WhatsApp"
+  },
+  "about": {
+    "title": "Hakkımda",
+    "subtitle": "Uzman Diyetisyen",
+    "biography": "Merhaba, ben Oğuz Yolyapan. Beslenme ve Diyet alanında Yüksek Lisans derecesine sahip, uzman bir diyetisyenim. Sağlıklı yaşam ve doğru beslenme konularında bilimsel temelli yaklaşımlarla danışanlarıma hizmet veriyorum.",
+    "education": "Eğitim",
+    "experience": "Deneyim",
+    "certifications": "Sertifikalar"
+  },
+  "services": {
+    "title": "Hizmetlerim",
+    "subtitle": "Profesyonel Beslenme Danışmanlığı",
+    "weightLoss": "Kilo Verme",
+    "weightGain": "Kilo Alma",
+    "sportNutrition": "Spor Beslenmesi",
+    "medicalNutrition": "Medikal Beslenme",
+    "childNutrition": "Çocuk Beslenmesi",
+    "pregnancyNutrition": "Hamilelik Beslenmesi"
+  },
+  "packages": {
+    "title": "Paketler",
+    "subtitle": "Size Uygun Paketi Seçin",
+    "basic": "Temel Paket",
+    "premium": "Premium Paket",
+    "vip": "VIP Paket",
+    "selectPackage": "Paketi Seç",
+    "popular": "Popüler"
+  },
+  "testimonials": {
+    "title": "Danışan Yorumları",
+    "subtitle": "Müşteri Memnuniyeti Bizim Önceliğimiz"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Beslenme ve Sağlık Yazıları",
+    "readMore": "Devamını Oku",
+    "categories": "Kategoriler",
+    "latestPosts": "Son Yazılar",
+    "allPosts": "Tüm Yazılar",
+    "featuredPosts": "Öne Çıkan Yazılar",
+    "popularPosts": "Popüler Yazılar",
+    "searchPlaceholder": "Blog yazılarında ara...",
+    "noResults": "Arama sonucu bulunamadı",
+    "readTime": "dakika okuma",
+    "publishedOn": "Yayımlandı",
+    "author": "Yazar",
+    "tags": "Etiketler",
+    "share": "Paylaş",
+    "comments": {
+      "title": "Yorumlar",
+      "count": "yorum",
+      "addComment": "Yorum Ekle",
+      "name": "İsim",
+      "email": "E-posta",
+      "message": "Yorumunuz",
+      "submit": "Yorum Gönder",
+      "reply": "Yanıtla",
+      "noComments": "Henüz yorum yok. İlk yorumu siz yapın!",
+      "success": "Yorumunuz başarıyla gönderildi!",
+      "pending": "Yorumunuz moderasyon bekliyor.",
+      "ago": "önce"
+    },
+    "newsletter": {
+      "title": "Blog Bültenine Abone Ol",
+      "subtitle": "Yeni yazılardan haberdar olmak için e-posta adresinizi girin",
+      "placeholder": "E-posta adresiniz",
+      "subscribe": "Abone Ol",
+      "success": "Başarıyla abone oldunuz!"
+    }
+  },
+  "faq": {
+    "title": "Sık Sorulan Sorular",
+    "subtitle": "Merak Ettikleriniz",
+    "contact": {
+      "title": "Başka Sorularınız Var mı?",
+      "subtitle": "Merak ettiğiniz konularda bize ulaşın",
+      "button": "İletişime Geç"
+    }
+  },
+  "contact": {
+    "title": "İletişim",
+    "subtitle": "Bizimle İletişime Geçin",
+    "form": {
+      "name": "Ad Soyad",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "message": "Mesaj",
+      "send": "Gönder"
+    },
+    "info": {
+      "address": "Adres",
+      "phone": "Telefon",
+      "email": "E-posta",
+      "hours": "Çalışma Saatleri"
+    }
+  },
+  "appointment": {
+    "title": "Online Randevu",
+    "subtitle": "Uzman diyetisyen Oğuz Yolyapan ile randevu alın",
+    "description": "Size en uygun tarih ve saati seçerek kolayca randevu alabilirsiniz. Randevu süreniz 45 dakikadır ve video konferans ile gerçekleştirilir.",
+    "steps": {
+      "step1": "Randevu Türü Seçin",
+      "step2": "Tarih ve Saat Seçin",
+      "step3": "Bilgilerinizi Girin",
+      "step4": "Randevu Onayı"
+    },
+    "appointmentTypes": {
+      "title": "Randevu Türü",
+      "firstConsultation": "İlk Danışmanlık",
+      "followUp": "Kontrol Randevusu",
+      "nutritionPlan": "Beslenme Planı",
+      "sportNutrition": "Spor Beslenmesi",
+      "medicalNutrition": "Medikal Beslenme",
+      "childNutrition": "Çocuk Beslenmesi"
+    },
+    "form": {
+      "personalInfo": "Kişisel Bilgiler",
+      "firstName": "Ad",
+      "lastName": "Soyad",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "age": "Yaş",
+      "gender": "Cinsiyet",
+      "male": "Erkek",
+      "female": "Kadın",
+      "weight": "Kilo (kg)",
+      "height": "Boy (cm)",
+      "healthConditions": "Sağlık Durumu",
+      "medications": "Kullandığınız İlaçlar",
+      "allergies": "Alerjiler",
+      "dietaryPreferences": "Beslenme Tercihleri",
+      "goals": "Hedefleriniz",
+      "additionalNotes": "Ek Notlar"
+    },
+    "timeSlots": {
+      "morning": "Sabah",
+      "afternoon": "Öğleden Sonra",
+      "evening": "Akşam",
+      "available": "Müsait",
+      "booked": "Dolu",
+      "selectTime": "Saat Seçin"
+    },
+    "calendar": {
+      "selectDate": "Tarih Seçin",
+      "today": "Bugün",
+      "tomorrow": "Yarın",
+      "nextWeek": "Gelecek Hafta",
+      "noAvailableSlots": "Bu tarih için müsait saat yok"
+    },
+    "confirmation": {
+      "title": "Randevu Onayı",
+      "summary": "Randevu Özeti",
+      "type": "Randevu Türü",
+      "date": "Tarih",
+      "time": "Saat",
+      "duration": "Süre",
+      "price": "Ücret",
+      "paymentMethod": "Ödeme Yöntemi",
+      "creditCard": "Kredi Kartı",
+      "bankTransfer": "Havale/EFT",
+      "payAtAppointment": "Randevu Sırasında Ödeme",
+      "terms": "Randevu koşullarını kabul ediyorum",
+      "privacyPolicy": "Gizlilik politikasını kabul ediyorum",
+      "confirmButton": "Randevu Onayla",
+      "cancelButton": "İptal Et"
+    },
+    "success": {
+      "title": "Randevu Başarıyla Oluşturuldu!",
+      "message": "Randevunuz başarıyla oluşturuldu. Randevu detayları e-posta adresinize gönderildi.",
+      "appointmentId": "Randevu No",
+      "joinLink": "Randevu Linki",
+      "calendarButton": "Takvime Ekle",
+      "dashboardButton": "Panelime Git"
+    },
+    "pricing": {
+      "firstConsultation": "₺350",
+      "followUp": "₺250",
+      "nutritionPlan": "₺400",
+      "sportNutrition": "₺300",
+      "medicalNutrition": "₺450",
+      "childNutrition": "₺300"
+    },
+    "errors": {
+      "selectType": "Lütfen randevu türü seçin",
+      "selectDate": "Lütfen tarih seçin",
+      "selectTime": "Lütfen saat seçin",
+      "fillRequired": "Lütfen tüm gerekli alanları doldurun",
+      "invalidEmail": "Geçersiz e-posta adresi",
+      "invalidPhone": "Geçersiz telefon numarası",
+      "acceptTerms": "Randevu koşullarını kabul etmelisiniz",
+      "bookingFailed": "Randevu oluşturulamadı. Lütfen tekrar deneyin."
+    }
+  },
+  "calculators": {
+    "title": "Hesaplayıcılar",
+    "subtitle": "Sağlık Hesaplayıcıları",
+    "bmi": {
+      "title": "BMI Hesaplayıcısı",
+      "description": "Vücut kitle indeksinizi hesaplayın",
+      "height": "Boy (cm)",
+      "weight": "Kilo (kg)",
+      "calculate": "Hesapla",
+      "result": "Sonuç"
+    },
+    "bmr": {
+      "title": "BMR Hesaplayıcısı",
+      "description": "Bazal metabolizma hızınızı hesaplayın",
+      "age": "Yaş",
+      "gender": "Cinsiyet",
+      "male": "Erkek",
+      "female": "Kadın",
+      "activity": "Aktivite Seviyesi",
+      "sedentary": "Hareketsiz",
+      "light": "Hafif Aktif",
+      "moderate": "Orta Aktif",
+      "active": "Aktif",
+      "veryActive": "Çok Aktif"
+    },
+    "calorie": {
+      "title": "Kalori Hesaplayıcı",
+      "description": "Günlük kalori ihtiyacınızı tahmin edin",
+      "activity": "Aktivite Seviyesi",
+      "sedentary": "Hareketsiz",
+      "light": "Hafif Aktif",
+      "moderate": "Orta Aktif",
+      "active": "Aktif",
+      "veryActive": "Çok Aktif"
+    },
+    "water": {
+      "title": "Su İhtiyacı Hesaplayıcısı",
+      "description": "Günlük su ihtiyacınızı hesaplayın",
+      "climate": "İklim",
+      "normal": "Normal",
+      "hot": "Sıcak",
+      "cold": "Soğuk"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Giriş Yap",
+      "subtitle": "Danışan panelinize erişmek için giriş yapın",
+      "email": "E-posta",
+      "password": "Şifre",
+      "remember": "Beni hatırla",
+      "forgotPassword": "Şifremi unuttum",
+      "loginButton": "Giriş Yap",
+      "noAccount": "Hesabınız yok mu?",
+      "signupLink": "Kayıt ol",
+      "errors": {
+        "invalidCredentials": "Geçersiz e-posta veya şifre",
+        "emailRequired": "E-posta gerekli",
+        "passwordRequired": "Şifre gerekli",
+        "passwordTooShort": "Şifre en az 6 karakter olmalı",
+        "emailNotConfirmed": "E-posta adresinizi doğrulamanız gerekiyor",
+        "tooManyRequests": "Çok fazla deneme. Lütfen daha sonra tekrar deneyin",
+        "networkError": "Ağ hatası. Lütfen tekrar deneyin."
+      },
+      "emailPlaceholder": "ornek@email.com",
+      "passwordPlaceholder": "Şifrenizi girin"
+    },
+    "signup": {
+      "title": "Kayıt Ol",
+      "subtitle": "Yeni hesap oluşturun ve hizmetlerimizden faydalanın",
+      "firstName": "Ad",
+      "lastName": "Soyad",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "password": "Şifre",
+      "confirmPassword": "Şifre Tekrar",
+      "birthDate": "Doğum Tarihi",
+      "gender": "Cinsiyet",
+      "male": "Erkek",
+      "female": "Kadın",
+      "terms": "Kullanım şartlarını kabul ediyorum",
+      "privacy": "Gizlilik politikasını kabul ediyorum",
+      "signupButton": "Kayıt Ol",
+      "hasAccount": "Zaten hesabınız var mı?",
+      "loginLink": "Giriş yap",
+      "errors": {
+        "firstNameRequired": "Ad gerekli",
+        "lastNameRequired": "Soyad gerekli",
+        "emailRequired": "E-posta gerekli",
+        "emailInvalid": "Geçersiz e-posta formatı",
+        "phoneRequired": "Telefon gerekli",
+        "passwordRequired": "Şifre gerekli",
+        "passwordMinLength": "Şifre en az 8 karakter olmalı",
+        "passwordsNotMatch": "Şifreler eşleşmiyor",
+        "termsRequired": "Kullanım şartlarını kabul etmelisiniz",
+        "emailExists": "Bu e-posta adresi zaten kayıtlı",
+        "networkError": "Ağ hatası. Lütfen tekrar deneyin."
+      }
+    },
+    "resetPassword": {
+      "title": "Şifre Sıfırla",
+      "subtitle": "Şifre sıfırlama bağlantısı gönderelim",
+      "email": "E-posta",
+      "sendButton": "Bağlantı Gönder",
+      "backToLogin": "Giriş sayfasına dön",
+      "success": "Şifre sıfırlama bağlantısı e-posta adresinize gönderildi",
+      "errors": {
+        "emailNotFound": "Bu e-posta adresi kayıtlı değil",
+        "networkError": "Ağ hatası. Lütfen tekrar deneyin."
+      }
+    }
+  },
+  "dashboard": {
+    "welcome": "Hoş geldiniz",
+    "stats": {
+      "appointments": "Randevular",
+      "plans": "Planlar",
+      "messages": "Mesajlar",
+      "progress": "İlerleme"
+    },
+    "recentActivity": "Son Aktiviteler",
+    "upcomingAppointments": "Yaklaşan Randevular",
+    "noAppointments": "Yaklaşan randevu yok",
+    "bookAppointment": "Randevu Al"
+  },
+  "admin": {
+    "title": "Yönetim Paneli",
+    "dashboard": "Dashboard",
+    "users": "Kullanıcılar",
+    "appointments": "Randevular",
+    "blog": "Blog Yönetimi",
+    "packages": "Paket Yönetimi",
+    "messages": "Mesajlar",
+    "settings": "Ayarlar"
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Hata",
+    "success": "Başarılı",
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "view": "Görüntüle",
+    "close": "Kapat",
+    "back": "Geri",
+    "next": "İleri",
+    "previous": "Önceki",
+    "search": "Ara",
+    "filter": "Filtrele",
+    "reset": "Sıfırla",
+    "submit": "Gönder",
+    "required": "Zorunlu",
+    "optional": "Opsiyonel",
+    "yes": "Evet",
+    "no": "Hayır",
+    "or": "veya",
+    "and": "ve",
+    "showPassword": "Şifreyi göster",
+    "hidePassword": "Şifreyi gizle"
+  },
+  "cart": {
+    "title": "Sepetim",
+    "subtitle": "Seçtiğiniz Hizmetler",
+    "empty": "Sepetiniz boş",
+    "emptyMessage": "Sepetinize henüz bir hizmet eklenmemiş.",
+    "continueShopping": "Hizmetlere Gözat",
+    "item": "Ürün",
+    "quantity": "Adet",
+    "price": "Fiyat",
+    "total": "Toplam",
+    "subtotal": "Ara Toplam",
+    "tax": "KDV",
+    "discount": "İndirim",
+    "grandTotal": "Genel Toplam",
+    "remove": "Kaldır",
+    "update": "Güncelle",
+    "checkout": "Ödemeye Geç",
+    "addToCart": "Sepete Ekle",
+    "added": "Sepete Eklendi",
+    "couponCode": "Kupon Kodu",
+    "applyCoupon": "Kupon Uygula",
+    "couponApplied": "Kupon uygulandı",
+    "invalidCoupon": "Geçersiz kupon kodu",
+    "items": "ürün",
+    "estimatedTotal": "Tahmini Toplam"
+  },
+  "checkout": {
+    "title": "Ödeme",
+    "subtitle": "Güvenli Ödeme",
+    "steps": {
+      "step1": "Sipariş Özeti",
+      "step2": "Teslimat Bilgileri",
+      "step3": "Ödeme Yöntemi",
+      "step4": "Onay"
+    },
+    "orderSummary": {
+      "title": "Sipariş Özeti",
+      "items": "Ürünler",
+      "shipping": "Teslimat",
+      "tax": "KDV",
+      "total": "Toplam",
+      "free": "Ücretsiz"
+    },
+    "billingInfo": {
+      "title": "Fatura Bilgileri",
+      "firstName": "Ad",
+      "lastName": "Soyad",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "address": "Adres",
+      "city": "Şehir",
+      "state": "İl",
+      "zipCode": "Posta Kodu",
+      "country": "Ülke",
+      "company": "Şirket",
+      "taxNumber": "Vergi Numarası",
+      "sameAsShipping": "Teslimat adresi ile aynı"
+    },
+    "shippingInfo": {
+      "title": "Teslimat Bilgileri",
+      "method": "Teslimat Yöntemi",
+      "standard": "Standart Teslimat",
+      "express": "Hızlı Teslimat",
+      "digital": "Dijital Teslimat",
+      "pickup": "Teslim Alma",
+      "notes": "Teslimat Notları"
+    },
+    "payment": {
+      "title": "Ödeme Yöntemi",
+      "method": "Ödeme Yöntemi Seçin",
+      "creditCard": "Kredi Kartı",
+      "debitCard": "Banka Kartı",
+      "paypal": "PayPal",
+      "bankTransfer": "Havale/EFT",
+      "applePay": "Apple Pay",
+      "googlePay": "Google Pay",
+      "installments": "Taksit Seçenekleri",
+      "singlePayment": "Tek Çekim",
+      "cardNumber": "Kart Numarası",
+      "expiryDate": "Son Kullanma Tarihi",
+      "cvv": "CVV",
+      "cardHolder": "Kart Sahibinin Adı",
+      "saveCard": "Kartı kaydet",
+      "securePayment": "Güvenli Ödeme",
+      "ssl": "SSL ile korumalı"
+    },
+    "confirmation": {
+      "title": "Sipariş Onayı",
+      "orderNumber": "Sipariş Numarası",
+      "orderDate": "Sipariş Tarihi",
+      "paymentMethod": "Ödeme Yöntemi",
+      "total": "Toplam Tutar",
+      "status": "Durum",
+      "estimatedDelivery": "Tahmini Teslimat",
+      "trackOrder": "Siparişi Takip Et",
+      "continueService": "Hizmete Devam Et",
+      "printReceipt": "Fiş Yazdır",
+      "sendReceipt": "Fişi E-postaya Gönder"
+    },
+    "terms": {
+      "accept": "Şartları kabul ediyorum",
+      "privacy": "Gizlilik Politikası",
+      "terms": "Kullanım Şartları",
+      "refund": "İade Politikası",
+      "required": "Zorunlu alan"
+    },
+    "buttons": {
+      "placeOrder": "Siparişi Tamamla",
+      "processing": "İşleniyor...",
+      "backToCart": "Sepete Dön",
+      "continue": "Devam Et",
+      "edit": "Düzenle",
+      "change": "Değiştir"
+    },
+    "errors": {
+      "required": "Bu alan zorunludur",
+      "invalidEmail": "Geçersiz e-posta adresi",
+      "invalidPhone": "Geçersiz telefon numarası",
+      "invalidCard": "Geçersiz kart numarası",
+      "invalidExpiry": "Geçersiz son kullanma tarihi",
+      "invalidCvv": "Geçersiz CVV",
+      "paymentFailed": "Ödeme başarısız",
+      "networkError": "Ağ hatası",
+      "tryAgain": "Tekrar deneyin"
+    },
+    "success": {
+      "title": "Ödeme Başarılı!",
+      "message": "Siparişiniz başarıyla alındı. Detaylar e-posta adresinize gönderildi.",
+      "orderNumber": "Sipariş Numarası",
+      "nextSteps": "Sıradaki Adımlar",
+      "support": "Destek İçin"
+    }
+  },
+  "footer": {
+    "home": "Ana Sayfa",
+    "about": "Hakkında",
+    "contact": "İletişim",
+    "rights": "Tüm hakları saklıdır.",
+    "description": "Sağlıklı yaşam için profesyonel beslenme danışmanlığı",
+    "quickLinks": "Hızlı Linkler",
+    "services": "Hizmetler",
+    "followUs": "Bizi Takip Edin",
+    "newsletter": "Bülten",
+    "newsletterText": "Sağlık ve beslenme hakkında güncel bilgiler",
+    "subscribe": "Abone Ol",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Şartları"
+  },
+  "aboutPage": {
+    "seo": {
+      "title": "Oğuz Yolyapan Kimdir? - Diyetisyen",
+      "description": "Diyetisyen Oğuz Yolyapan hakkında bilgi edinin. Trakya Üniversitesi mezunu, beslenme ve diyetetik uzmanı."
+    },
+    "hero": {
+      "title": "Oğuz Yolyapan Kimdir?",
+      "subtitle": "Beslenme ve Diyetetik Uzmanı",
+      "badge1": "Diyetisyen",
+      "badge2": "Yüksek Lisans",
+      "badge3": "Beslenme Uzmanı",
+      "imageAlt": "Diyetisyen Oğuz Yolyapan"
+    },
+    "intro": {
+      "title": "Hakkımda",
+      "lead": "Merhaba! Ben Oğuz YOLYAPAN, 2020 yılında Trakya Üniversitesi Beslenme ve Diyetetik Bölümü'nden mezun oldum. Mesleğime olan tutkum, beslenmenin hayatımızı yansıttığına olan inancımla şekillendi.",
+      "detail1": "Beslenme bilimi, sürekli yenilenen ve gelişen bir alan olduğu için yurtdışı kaynakları ve yurtiçi konferansları düzenli olarak takip ederek kendimi güncel tutmaya özen gösteriyorum.",
+      "detail2": "Lisans eğitimim boyunca metabolizma konusuna duyduğum ilgi beni Trakya Üniversitesi Tıbbi Biyokimya Bilim Dalı'nda yüksek lisans yapmaya yöneltti. Bu süreçte, vücudumuzda gerçekleşen makro ve mikro besinlerin metabolik süreçlerini hücresel düzeyde inceleme fırsatı buldum."
+    },
+    "quote": {
+      "imageAlt": "Oğuz Yolyapan",
+      "text": "İyi bir beslenme, kişinin kendine verdiği değerin en somut göstergelerinden biridir.",
+      "author": "Oğuz Yolyapan",
+      "role": "Beslenme ve Diyetetik Uzmanı"
+    },
+    "experience": {
+      "title": "Mesleki Deneyim",
+      "lead": "Eğitim hayatım ve profesyonel gelişimim",
+      "card1": {
+        "imageAlt": "Klinik Deneyim",
+        "title": "Klinik Deneyim",
+        "text": "Biyokimya bilgim sayesinde danışanlarımın metabolizmasına uygun diyet yaklaşımlarını geliştiriyorum."
+      },
+      "card2": {
+        "imageAlt": "Akademik Gelişim",
+        "title": "Akademik Gelişim",
+        "text": "Eğitim hayatım süresince yerli ve uluslararası birçok sempozyuma ve konferansa katıldım."
+      },
+      "card3": {
+        "imageAlt": "Laboratuvar Çalışması",
+        "title": "Laboratuvar Çalışması",
+        "text": "Yüksek lisans dönemimde devlet laboratuvarında ve poliklinikte çalışmalar gerçekleştirdim."
+      }
+    },
+    "education": {
+      "title": "Eğitim Hayatım",
+      "lead": "Akademik geçmişim ve eğitim sürecim",
+      "card1": {
+        "imageAlt": "Lisans Eğitimi",
+        "title": "Lisans Eğitimi",
+        "university": "Trakya Üniversitesi",
+        "fieldLabel": "Alan:",
+        "field": "Beslenme ve Diyetetik Bölümü",
+        "yearLabel": "Yıl:",
+        "year": "2016 - 2020",
+        "thesisLabel": "Mezuniyet Çalışması:",
+        "thesis": "Ahududu ve Böğürtlen Antosiyaninlerinin Kolorektal Kanserde Terapötik Olarak Kullanılması: Derleme"
+      },
+      "card2": {
+        "imageAlt": "Yüksek Lisans",
+        "title": "Yüksek Lisans",
+        "university": "Trakya Üniversitesi",
+        "fieldLabel": "Alan:",
+        "field": "Tıbbi Biyokimya",
+        "yearLabel": "Yıl:",
+        "year": "2020 - 2022",
+        "thesisLabel": "Mezuniyet Çalışması:",
+        "thesis": "Ökaliptolün İnsan Kaynaklı Hepatoma Hücrelerinde Palmitat ile Oluşturulan Hücresel Hepatotoksisite Üzerine Etkisi"
+      }
+    },
+    "thesis": {
+      "title": "Tez Bilgileri",
+      "lead": "Tezimde özetle ökaliptolün hücresel hepatotoksisite üzerindeki etkilerini inceledim.",
+      "thesisTitle": "İnsan Kökenli Hepatoma Hücrelerinde Palmitat ile İndüklenen Hücresel Hepatotoksisite Üzerine Ökaliptolün Etkisi",
+      "downloadText": "Tezimi indirmek için tıklayın!",
+      "downloadBtn": "Tezi İndir",
+      "highlight": "Bilimsel araştırma, gerçek etki!"
+    },
+    "visionMission": {
+      "title": "Vizyon & Misyon",
+      "lead": "Sağlıklı yaşam için değerlerim",
+      "card1": {
+        "imageAlt": "Vizyon",
+        "title": "Vizyonum",
+        "text": "Bilimsel çalışmaları yakından takip ederek, danışanlarıma kazandırdığım beslenme bilgileri ile onların kendi kilo kontrolünü sağlamalarına yardımcı olmak. Biliminin temellerini öğretmek."
+      },
+      "card2": {
+        "imageAlt": "Misyon",
+        "title": "Misyonum",
+        "text": "Uzman bir diyetisyen olarak, danışanlarımı en sağlıklı bedenlerine ulaştırmayı ve onlara beslenme biliminin temellerini öğretmek."
+      }
+    },
+    "cta": {
+      "title": "Sağlıklı Beslenme Yolculuğunuza Başlayın",
+      "lead": "Uzman diyetisyen desteğiyle hedeflerinize ulaşın",
+      "appointmentBtn": "Randevu Al",
+      "contactBtn": "İletişim"
+    }
+  }
+}
