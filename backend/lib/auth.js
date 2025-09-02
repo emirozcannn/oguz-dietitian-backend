@@ -1,7 +1,7 @@
-import jwt from 'jsonwebtoken';
-import User from '../models/User.js';
+const jwt = require('jsonwebtoken');
+const User = require('../models/User.js');
 
-export const verifyToken = async (req) => {
+const verifyToken = async (req) => {
   const authHeader = req.headers.authorization;
   
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
@@ -24,7 +24,7 @@ export const verifyToken = async (req) => {
   }
 };
 
-export const requireAuth = async (req) => {
+const requireAuth = async (req) => {
   const user = await verifyToken(req);
   if (!user) {
     throw new Error('Authentication required');
@@ -32,10 +32,12 @@ export const requireAuth = async (req) => {
   return user;
 };
 
-export const requireAdmin = async (req) => {
+const requireAdmin = async (req) => {
   const user = await requireAuth(req);
   if (user.role !== 'admin') {
     throw new Error('Admin access required');
   }
   return user;
 };
+
+module.exports = { verifyToken, requireAuth, requireAdmin };

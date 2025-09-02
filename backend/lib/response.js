@@ -1,4 +1,4 @@
-export const sendSuccess = (res, data = null, message = 'Success', statusCode = 200) => {
+const sendSuccess = (res, data = null, message = 'Success', statusCode = 200) => {
   res.status(statusCode).json({
     success: true,
     message,
@@ -7,7 +7,7 @@ export const sendSuccess = (res, data = null, message = 'Success', statusCode = 
   });
 };
 
-export const sendError = (res, error = 'An error occurred', statusCode = 500, code = 'INTERNAL_ERROR') => {
+const sendError = (res, error = 'An error occurred', statusCode = 500, code = 'INTERNAL_ERROR') => {
   res.status(statusCode).json({
     success: false,
     error,
@@ -16,7 +16,7 @@ export const sendError = (res, error = 'An error occurred', statusCode = 500, co
   });
 };
 
-export const handleCors = (req, res) => {
+const handleCors = (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, PATCH');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, Accept, Origin, X-Requested-With');
@@ -28,3 +28,5 @@ export const handleCors = (req, res) => {
   }
   return false;
 };
+
+module.exports = { sendSuccess, sendError, handleCors };

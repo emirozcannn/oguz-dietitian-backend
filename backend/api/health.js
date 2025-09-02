@@ -1,7 +1,7 @@
-import { connectDB } from '../lib/db.js';
-import { sendSuccess, sendError, handleCors } from '../lib/response.js';
+const { connectDB } = require('../lib/db.js');
+const { sendSuccess, sendError, handleCors } = require('../lib/response.js');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (handleCors(req, res)) return;
 
   try {
@@ -19,4 +19,4 @@ export default async function handler(req, res) {
     console.error('Health check error:', error);
     sendError(res, 'Service unhealthy', 500);
   }
-}
+};

@@ -1,8 +1,8 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 let isConnected = false;
 
-export const connectDB = async () => {
+const connectDB = async () => {
   if (isConnected) {
     return;
   }
@@ -30,4 +30,4 @@ export const connectDB = async () => {
   }
 };
 
-export default connectDB;
+module.exports = { connectDB };
