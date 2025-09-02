@@ -1,27 +1,22 @@
-// Health check endpoint for Vercel
-export default function handler(req, res) {
-  // CORS headers
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, PATCH');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, Accept, Origin, X-Requested-With');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
+import { connectDB } from '../lib/db.js';
+import { sendSuccess, sendError, handleCors } from '../lib/response.js';
 
-  // Handle preflight
-  if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
-  }
+export default async function handler(req, res) {
+  if (handleCors(req, res)) return;
 
-  // Health check response
-  res.status(200).json({
-    success: true,
-    message: 'Service is healthy',
-    data: {
+  try {
+    await connectDB();
+    
+    sendSuccess(res, {
       status: 'healthy',
       server: 'running',
       database: 'connected',
-      environment: process.env.NODE_ENV || 'production'
-    },
-    timestamp: new Date().toISOString()
-  });
+      environment: process.env.NODE_ENV || 'production',
+      timestamp: new Date().toISOString()
+    }, 'Service is healthy');
+
+  } catch (error) {
+    console.error('Health check error:', error);
+    sendError(res, 'Service unhealthy', 500);
+  }
 }
