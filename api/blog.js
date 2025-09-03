@@ -2,6 +2,8 @@ const { connectDB } = require('../lib/db.js');
 const { sendSuccess, sendError, handleCors } = require('../lib/response.js');
 const { auth, adminAuth } = require('../middleware/auth.js');
 const Post = require('../models/Post.js');
+const Category = require('../models/Category.js'); // Category modelini import et
+const User = require('../models/User.js'); // User modelini import et
 
 // Helper function to generate URL-friendly slug
 function generateSlug(title) {
@@ -243,8 +245,17 @@ async function createPost(req, res) {
 
     const post = await Post.create(postData);
     const populatedPost = await Post.findById(post._id)
-      .populate('category')
-      .populate('author', 'firstName lastName');
+      .populate({
+        path: 'category',
+        select: 'name_tr name_en slug_tr slug_en',
+        options: { strictPopulate: false }
+      })
+      .populate({
+        path: 'author',
+        select: 'firstName lastName',
+        options: { strictPopulate: false }
+      })
+      .lean();
 
     sendSuccess(res, { post: populatedPost }, 'Post created successfully', 201);
   } catch (error) {
@@ -321,8 +332,17 @@ async function updatePost(req, res, id) {
       updateData,
       { new: true, runValidators: false } // Geçici olarak validation'ı kapat
     )
-      .populate('category')
-      .populate('author', 'firstName lastName');
+      .populate({
+        path: 'category',
+        select: 'name_tr name_en slug_tr slug_en',
+        options: { strictPopulate: false }
+      })
+      .populate({
+        path: 'author',
+        select: 'firstName lastName',
+        options: { strictPopulate: false }
+      })
+      .lean();
 
     if (!post) {
       return sendError(res, 'Post not found', 404, 'POST_NOT_FOUND');
