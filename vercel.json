@@ -5,5 +5,56 @@
     "MONGODB_URI": "mongodb+srv://emirus1214:alper1emir@cluster0.vhvvowo.mongodb.net/oguz-dietitian?retryWrites=true&w=majority&appName=Cluster0",
     "JWT_SECRET": "oguz-dietitian-super-secret-jwt-key-2025-production-ready",
     "CORS_ORIGIN": "https://www.oguzyolyapan.com"
-  }
+  },
+  "functions": {
+    "api/**/*.js": {
+      "runtime": "@vercel/node"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/auth/:path*",
+      "destination": "/api/auth.js"
+    },
+    {
+      "source": "/api/blog/:path*",
+      "destination": "/api/blog.js"
+    },
+    {
+      "source": "/api/packages/:path*",
+      "destination": "/api/packages.js"
+    },
+    {
+      "source": "/api/testimonials/:path*",
+      "destination": "/api/testimonials.js"
+    },
+    {
+      "source": "/api/faq/:path*",
+      "destination": "/api/faq.js"
+    },
+    {
+      "source": "/api/categories/:path*",
+      "destination": "/api/categories.js"
+    },
+    {
+      "source": "/api/contact/:path*",
+      "destination": "/api/contact.js"
+    },
+    {
+      "source": "/api/admin/:path*",
+      "destination": "/api/admin.js"
+    },
+    {
+      "source": "/api/upload/:path*",
+      "destination": "/api/upload.js"
+    },
+    {
+      "source": "/api/health",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/api",
+      "destination": "/api/index.js"
+    }
+  ]
 }

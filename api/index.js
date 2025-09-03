@@ -1,102 +1,28 @@
 const { connectDB } = require('../lib/db.js');
 const { sendSuccess, sendError, handleCors } = require('../lib/response.js');
-const { auth, adminAuth } = require('../middleware/auth.js');
-const jwt = require('jsonwebtoken');
 
-// Models
-const User = require('../models/User.js');
-const Category = require('../models/Category.js');
-const Post = require('../models/Post.js');
-const Package = require('../models/Package.js');
-const Testimonial = require('../models/Testimonial.js');
-const { FAQCategory, FAQItem } = require('../models/FAQ.js');
-const Contact = require('../models/Contact.js');
-
+// Simple routing handler - Main API entry point
 module.exports = async function handler(req, res) {
   if (handleCors(req, res)) return;
 
   await connectDB();
 
   try {
-    const { path: pathname, method } = req.query;
-    const segments = pathname ? pathname.split('/').filter(Boolean) : [];
-
-    // Route: GET /auth/me
-    if (method === 'GET' && segments[0] === 'auth' && segments[1] === 'me') {
-      return await getCurrentUser(req, res);
+    const url = new URL(req.url, `http://${req.headers.host}`);
+    const pathname = url.pathname.replace('/api', '');
+    
+    // Health check
+    if (pathname === '/health' || pathname === '/') {
+      return sendSuccess(res, {
+        status: 'ok',
+        timestamp: new Date().toISOString(),
+        environment: process.env.NODE_ENV || 'development',
+        database: 'connected'
+      }, 'API is healthy');
     }
 
-    // Route: POST /auth/login
-    if (method === 'POST' && segments[0] === 'auth' && segments[1] === 'login') {
-      return await login(req, res);
-    }
-
-    // Route: POST /auth/register
-    if (method === 'POST' && segments[0] === 'auth' && segments[1] === 'register') {
-      return await register(req, res);
-    }
-
-    // Route: PUT /auth/profile
-    if (method === 'PUT' && segments[0] === 'auth' && segments[1] === 'profile') {
-      return await updateProfile(req, res);
-    }
-
-    // Route: GET /blog
-    if (method === 'GET' && segments[0] === 'blog' && !segments[1]) {
-      return await getPosts(req, res);
-    }
-
-    // Route: GET /blog/:slug
-    if (method === 'GET' && segments[0] === 'blog' && segments[1]) {
-      return await getPost(req, res, segments[1]);
-    }
-
-    // Route: POST /blog
-    if (method === 'POST' && segments[0] === 'blog' && !segments[1]) {
-      return await createPost(req, res);
-    }
-
-    // Route: GET /packages
-    if (method === 'GET' && segments[0] === 'packages' && !segments[1]) {
-      return await getPackages(req, res);
-    }
-
-    // Route: GET /packages/:id
-    if (method === 'GET' && segments[0] === 'packages' && segments[1]) {
-      return await getPackage(req, res, segments[1]);
-    }
-
-    // Route: GET /testimonials
-    if (method === 'GET' && segments[0] === 'testimonials') {
-      return await getTestimonials(req, res);
-    }
-
-    // Route: POST /testimonials
-    if (method === 'POST' && segments[0] === 'testimonials') {
-      return await createTestimonial(req, res);
-    }
-
-    // Route: GET /faq
-    if (method === 'GET' && segments[0] === 'faq') {
-      return await getFAQ(req, res);
-    }
-
-    // Route: POST /contact
-    if (method === 'POST' && segments[0] === 'contact' && !segments[1]) {
-      return await submitContact(req, res);
-    }
-
-    // Route: GET /contact/info
-    if (method === 'GET' && segments[0] === 'contact' && segments[1] === 'info') {
-      return await getContactInfo(req, res);
-    }
-
-    // Route: GET /categories
-    if (method === 'GET' && segments[0] === 'categories') {
-      return await getCategories(req, res);
-    }
-
-    sendError(res, 'Route not found', 404, 'ROUTE_NOT_FOUND');
+    // Route not found in main handler
+    sendError(res, `Route ${pathname} not found. Use specific endpoint files.`, 404, 'ROUTE_NOT_FOUND');
 
   } catch (error) {
     console.error('API error:', error);
