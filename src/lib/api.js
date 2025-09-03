@@ -61,6 +61,11 @@ class ApiClient {
     }
   }
 
+  // Generic GET method for backward compatibility
+  async get(endpoint) {
+    return await this.request(endpoint);
+  }
+
   // Get fallback data based on endpoint
   getFallbackData(endpoint) {
     console.log(`📦 Using fallback data for: ${endpoint}`);

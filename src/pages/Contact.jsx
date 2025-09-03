@@ -26,8 +26,8 @@ const Contact = () => {
 
   const loadCategories = async () => {
     try {
-      const data = await apiClient.get('/categories?type=public');
-      setCategories(data || []);
+      const response = await apiClient.get('/api/categories?language=' + (isEnglish ? 'en' : 'tr'));
+      setCategories(response?.data?.categories || []);
     } catch (error) {
       console.error('Error loading categories:', error);
     }

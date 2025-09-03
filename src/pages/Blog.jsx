@@ -90,7 +90,7 @@ const Blog = () => {
         // Fetch posts with published status
         const postsResponse = await apiClient.getAllPosts(isEnglish ? 'en' : 'tr', null, null, 'published');
         if (postsResponse.success) {
-          const postsData = postsResponse.data || [];
+          const postsData = postsResponse.data?.posts || [];
           console.log('Posts loaded:', postsData);
           setPosts(postsData);
           setFeaturedPosts(postsData.filter(post => post.is_featured));
