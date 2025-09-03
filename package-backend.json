@@ -1,0 +1,21 @@
+{
+  "name": "oguz-dietitian-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Oğuz Yolyapan Dietitian Website",
+  "main": "api/index.js",
+  "scripts": {
+    "start": "node api/index.js",
+    "dev": "node api/index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["dietitian", "api", "nodejs", "mongodb"],
+  "author": "Emir Özcan",
+  "license": "ISC"
+}

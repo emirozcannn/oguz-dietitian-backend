@@ -1,21 +1,60 @@
 {
-  "name": "oguz-dietitian-backend",
+  "name": "oguz-yolyapan-website",
+  "private": true,
   "version": "1.0.0",
-  "description": "Backend API for Oğuz Yolyapan Dietitian Website",
-  "main": "api/index.js",
+  "description": "Professional bilingual website for Expert Dietitian Oğuz Yolyapan",
+  "type": "module",
   "scripts": {
-    "start": "node api/index.js",
-    "dev": "node api/index.js"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "server": "nodemon server.js",
+    "start": "concurrently \"npm run server\" \"npm run dev\"",
+    "prod": "vite preview --port 3000"
   },
   "dependencies": {
-    "bcryptjs": "^2.4.3",
+    "@hookform/resolvers": "^5.1.1",
+    "@uiw/react-md-editor": "^4.0.7",
+    "axios": "^1.10.0",
+    "bcryptjs": "^3.0.2",
+    "bootstrap": "^5.3.7",
+    "bootstrap-icons": "^1.13.1",
+    "crypto-js": "^4.2.0",
+    "i18next": "^25.3.2",
+    "i18next-browser-languagedetector": "^8.2.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.0.0"
+    "jspdf": "^3.0.1",
+    "jspdf-autotable": "^5.0.2",
+    "jwt-decode": "^4.0.0",
+    "lucide-react": "^0.525.0",
+    "mongoose": "^8.18.0",
+    "react": "^19.1.0",
+    "react-bootstrap": "^2.10.10",
+    "react-dom": "^19.1.0",
+    "react-helmet-async": "^2.0.5",
+    "react-hook-form": "^7.60.0",
+    "react-i18next": "^15.6.0",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.6.3",
+    "react-slick": "^0.30.3",
+    "slick-carousel": "^1.8.1",
+    "yup": "^1.6.1"
   },
-  "engines": {
-    "node": ">=18"
-  },
-  "keywords": ["dietitian", "api", "nodejs", "mongodb"],
-  "author": "Emir Özcan",
-  "license": "ISC"
+  "devDependencies": {
+    "@eslint/js": "^9.30.1",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.6.0",
+    "concurrently": "^9.2.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "eslint": "^9.30.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "express": "^4.19.2",
+    "globals": "^16.3.0",
+    "nodemon": "^3.1.10",
+    "vite": "^7.0.4"
+  }
 }

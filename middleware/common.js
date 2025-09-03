@@ -1,9 +1,9 @@
-import cors from 'cors';
-import rateLimit from 'express-rate-limit';
-import helmet from 'helmet';
+const cors = require('cors');
+const rateLimit = require('express-rate-limit');
+const helmet = require('helmet');
 
 // CORS middleware
-export const corsMiddleware = cors({
+const corsMiddleware = cors({
   origin: function (origin, callback) {
     // Production'da belirli domain'lere, development'da hepsine izin ver
     const allowedOrigins = [
@@ -50,7 +50,7 @@ export const corsMiddleware = cors({
 });
 
 // Rate limiting
-export const rateLimitMiddleware = rateLimit({
+const rateLimitMiddleware = rateLimit({
   windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 15 * 60 * 1000, // 15 minutes
   max: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS) || 100, // limit each IP to 100 requests per windowMs
   message: {
@@ -63,13 +63,13 @@ export const rateLimitMiddleware = rateLimit({
 });
 
 // Security middleware
-export const securityMiddleware = helmet({
+const securityMiddleware = helmet({
   contentSecurityPolicy: false, // Disable CSP for API
   crossOriginEmbedderPolicy: false
 });
 
 // Error handler middleware
-export const errorHandler = (err, req, res, next) => {
+const errorHandler = (err, req, res, next) => {
   console.error('❌ API Error:', err);
 
   // Default error
@@ -131,4 +131,11 @@ export const errorHandler = (err, req, res, next) => {
   }
 
   res.status(500).json(error);
+};
+
+module.exports = {
+  corsMiddleware,
+  rateLimitMiddleware,
+  securityMiddleware,
+  errorHandler
 };
