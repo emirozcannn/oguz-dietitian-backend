@@ -324,6 +324,10 @@ class ApiClient {
   }
 
   // FAQ endpoints
+  async getFAQ(language = 'tr') {
+    return this.request(`/api/faq?language=${language}`);
+  }
+
   async getFAQItems(language = 'tr') {
     return this.request(`/api/faq?language=${language}`);
   }

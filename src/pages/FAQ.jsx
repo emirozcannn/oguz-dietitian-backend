@@ -25,18 +25,24 @@ const FAQ = () => {
       setLoading(true);
       setError(null);
 
-      const itemsResponse = await apiClient.getFAQItems('tr');
-      const categoriesResponse = await apiClient.getFAQCategories('tr');
+      const faqResponse = await apiClient.getFAQ(i18n.language === 'en' ? 'en' : 'tr');
 
-      if (!itemsResponse.success) {
-        throw new Error(itemsResponse.message || 'FAQ verileri yüklenemedi');
-      }
-      if (!categoriesResponse.success) {
-        throw new Error(categoriesResponse.message || 'Kategori verileri yüklenemedi');
+      if (!faqResponse.success) {
+        throw new Error(faqResponse.message || 'FAQ verileri yüklenemedi');
       }
 
-      setFaqData(Array.isArray(itemsResponse.data) ? itemsResponse.data : []);
-      setCategories(Array.isArray(categoriesResponse.data) ? categoriesResponse.data : []);
+      const faqData = faqResponse.data?.faq || [];
+      setFaqData(faqData);
+      
+      // Extract categories from FAQ data
+      const allCategories = faqData.map(category => ({
+        _id: category._id,
+        name: category.name,
+        description: category.description,
+        icon: category.icon,
+        color: category.color
+      }));
+      setCategories(allCategories);
     } catch (error) {
       console.error('Error loading FAQ data:', error);
       setError(error.message);

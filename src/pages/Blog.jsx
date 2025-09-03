@@ -446,9 +446,9 @@ const Blog = () => {
                       onChange={(e) => setSelectedCategory(e.target.value)}
                     >
                       <option value="all">{isEnglish ? 'All Categories' : 'Tüm Kategoriler'}</option>
-                      {categories.map(category => (
+                      {Array.isArray(categories) && categories.map(category => (
                         <option key={category._id} value={category._id}>
-                          {isEnglish ? category.name.en : category.name.tr}
+                          {isEnglish ? category.name?.en || category.name : category.name?.tr || category.name}
                         </option>
                       ))}
                     </select>
@@ -468,7 +468,7 @@ const Blog = () => {
                 {isEnglish ? 'Featured Posts' : 'Öne Çıkan Yazılar'}
               </h2>
               <div className="row">
-                {featuredPosts.map((post) => {
+                {Array.isArray(featuredPosts) && featuredPosts.map((post) => {
                   const postCategory = getPostCategory(post);
                   return (
                   <div key={post._id || post.id} className="col-lg-6 mb-4">
@@ -556,7 +556,7 @@ const Blog = () => {
               </div>
             ) : (
               <div className="row">
-                {filteredPosts.map((post) => {
+                {Array.isArray(filteredPosts) && filteredPosts.map((post) => {
                   const postCategory = getPostCategory(post);
                   return (
                   <div key={post._id || post.id} className="col-12 mb-4">
@@ -641,7 +641,7 @@ const Blog = () => {
                 </h5>
               </div>
               <div className="card-body">
-                {popularPosts.map((post, index) => (
+                {Array.isArray(popularPosts) && popularPosts.map((post, index) => (
                   <div key={post._id} className={`d-flex ${index !== popularPosts.length - 1 ? 'mb-3 pb-3 border-bottom' : ''}`}>
                     <div className="flex-shrink-0 me-3">
                       <span className="badge bg-primary rounded-circle" style={{ width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -684,7 +684,7 @@ const Blog = () => {
                     <i className="bi bi-grid me-1"></i>
                     {isEnglish ? 'All Categories' : 'Tüm Kategoriler'}
                   </button>
-                  {categories.map(category => (
+                  {Array.isArray(categories) && categories.map(category => (
                     <button
                       key={category._id || category.id}
                       className={`btn btn-sm ${selectedCategory === (category._id || category.id) ? 'btn-primary' : 'btn-outline-primary'}`}
