@@ -84,6 +84,9 @@ const BlogManager = () => {
     if (!data.title_en?.trim()) errors.push('İngilizce başlık gereklidir');
     if (!data.content_tr?.trim()) errors.push('Türkçe içerik gereklidir');
     if (!data.content_en?.trim()) errors.push('İngilizce içerik gereklidir');
+    if (!data.excerpt_tr?.trim()) errors.push('Türkçe özet gereklidir');
+    if (!data.excerpt_en?.trim()) errors.push('İngilizce özet gereklidir');
+    if (!data.category_id?.trim()) errors.push('Kategori seçimi zorunludur');
     
     // Length validations
     if (data.meta_title_tr && data.meta_title_tr.length > 60) {
@@ -402,8 +405,8 @@ const BlogManager = () => {
       const formDataWithAuthor = {
         ...dataWithStatus,
         authorId: '674bc89c5fc7529b6a2b3c3b', // Admin user ID
-        // Categories'i geçici olarak kaldır
-        category_id: '' 
+        // Category'i backend'e gönder
+        category: dataWithStatus.category_id 
       };
 
       console.log('Submitting form data:', formDataWithAuthor);
@@ -1040,7 +1043,7 @@ const BlogManager = () => {
                         <div className="col-md-6">
                           <label className="form-label fw-medium">
                             <i className="bi bi-card-text text-primary me-2"></i>
-                            Özet (Türkçe)
+                            Özet (Türkçe) *
                           </label>
                           <textarea
                             className="form-control"
@@ -1050,6 +1053,7 @@ const BlogManager = () => {
                             rows="4"
                             placeholder="Blog yazısının kısa özeti..."
                             maxLength="300"
+                            required
                           />
                           <div className="form-text">
                             Maksimum 300 karakter. Blog listelerinde görünür.
@@ -1058,7 +1062,7 @@ const BlogManager = () => {
                         <div className="col-md-6">
                           <label className="form-label fw-medium">
                             <i className="bi bi-card-text text-primary me-2"></i>
-                            Özet (İngilizce)
+                            Özet (İngilizce) *
                           </label>
                           <textarea
                             className="form-control"
@@ -1068,6 +1072,7 @@ const BlogManager = () => {
                             rows="4"
                             placeholder="Short summary of the blog post..."
                             maxLength="300"
+                            required
                           />
                           <div className="form-text">
                             Maximum 300 characters. Appears in blog listings.
@@ -1078,15 +1083,16 @@ const BlogManager = () => {
                         <div className="col-md-6">
                           <label className="form-label fw-medium">
                             <i className="bi bi-folder text-primary me-2"></i>
-                            Kategori
+                            Kategori *
                           </label>
                           <select
                             className="form-select form-select-lg"
                             name="category_id"
                             value={formData.category_id}
                             onChange={handleChange}
+                            required
                           >
-                            <option value="">Kategori Seçin (Opsiyonel)</option>
+                            <option value="">Kategori Seçin (Zorunlu)</option>
                             {categories.map((cat, index) => (
                               <option key={cat._id || cat.id || `cat-${index}`} value={cat._id || cat.id}>
                                 {i18n.language === 'tr' ? 
@@ -1096,6 +1102,9 @@ const BlogManager = () => {
                               </option>
                             ))}
                           </select>
+                          <div className="form-text text-danger">
+                            Bu alan zorunludur. Blog yazısı kategorize edilmelidir.
+                          </div>
                         </div>
                         <div className="col-md-6">
                           <label className="form-label fw-medium">

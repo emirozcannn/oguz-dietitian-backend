@@ -3,6 +3,22 @@ const { sendSuccess, sendError, handleCors } = require('../lib/response.js');
 const { auth, adminAuth } = require('../middleware/auth.js');
 const Post = require('../models/Post.js');
 
+// Helper function to generate URL-friendly slug
+function generateSlug(title) {
+  return title
+    .toLowerCase()
+    .replace(/[çÇ]/g, 'c')
+    .replace(/[ğĞ]/g, 'g')
+    .replace(/[ıI]/g, 'i')
+    .replace(/[öÖ]/g, 'o')
+    .replace(/[şŞ]/g, 's')
+    .replace(/[üÜ]/g, 'u')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .trim('-');
+}
+
 module.exports = async function handler(req, res) {
   if (handleCors(req, res)) return;
   await connectDB();
@@ -150,13 +166,48 @@ async function createPost(req, res) {
     // const authResult = await adminAuth(req, res);
     // if (!authResult) return;
 
+    // Required field validation
+    const requiredFields = ['title_tr', 'title_en', 'content_tr', 'content_en', 'excerpt_tr', 'excerpt_en'];
+    const missingFields = requiredFields.filter(field => !req.body[field]?.trim());
+    
+    if (missingFields.length > 0) {
+      return sendError(res, `Missing required fields: ${missingFields.join(', ')}`, 400, 'VALIDATION_ERROR');
+    }
+
+    // Category validation
+    if (!req.body.category_id?.trim() && !req.body.category?.trim()) {
+      return sendError(res, 'Category is required', 400, 'CATEGORY_REQUIRED');
+    }
+
     const postData = {
-      ...req.body,
+      title_tr: req.body.title_tr.trim(),
+      title_en: req.body.title_en.trim(),
+      slug_tr: req.body.slug_tr?.trim() || generateSlug(req.body.title_tr),
+      slug_en: req.body.slug_en?.trim() || generateSlug(req.body.title_en),
+      excerpt_tr: req.body.excerpt_tr.trim(),
+      excerpt_en: req.body.excerpt_en.trim(),
+      content_tr: req.body.content_tr.trim(),
+      content_en: req.body.content_en.trim(),
+      imageUrl: req.body.featured_image || req.body.imageUrl,
+      imageAltText_tr: req.body.image_alt_tr,
+      imageAltText_en: req.body.image_alt_en,
+      category: req.body.category_id || req.body.category,
       author: '674bc89c5fc7529b6a2b3c3b', // Default admin ID
-      created_at: new Date(),
-      updated_at: new Date(),
-      published_at: req.body.status === 'published' ? new Date() : null
+      status: req.body.status || 'draft',
+      isFeatured: req.body.is_featured || false,
+      readTime: req.body.read_time || 3,
+      tags: req.body.tags_tr || [],
+      seo: {
+        metaTitle_tr: req.body.meta_title_tr,
+        metaTitle_en: req.body.meta_title_en,
+        metaDescription_tr: req.body.meta_description_tr,
+        metaDescription_en: req.body.meta_description_en,
+        keywords: req.body.meta_keywords_tr ? req.body.meta_keywords_tr.split(',') : []
+      },
+      publishedAt: req.body.status === 'published' ? new Date() : null
     };
+
+    console.log('Creating post with data:', postData);
 
     const post = await Post.create(postData);
     const populatedPost = await Post.findById(post._id)
@@ -166,7 +217,14 @@ async function createPost(req, res) {
     sendSuccess(res, { post: populatedPost }, 'Post created successfully', 201);
   } catch (error) {
     console.error('Create post error:', error);
-    sendError(res, 'Failed to create post', 500);
+    
+    // Handle validation errors
+    if (error.name === 'ValidationError') {
+      const validationErrors = Object.values(error.errors).map(err => err.message);
+      return sendError(res, `Validation failed: ${validationErrors.join(', ')}`, 400, 'VALIDATION_ERROR');
+    }
+    
+    sendError(res, 'Failed to create post: ' + error.message, 500);
   }
 }
 
@@ -176,11 +234,48 @@ async function updatePost(req, res, id) {
     // const authResult = await adminAuth(req, res);
     // if (!authResult) return;
 
+    // Required field validation for updates
+    const requiredFields = ['title_tr', 'title_en', 'content_tr', 'content_en', 'excerpt_tr', 'excerpt_en'];
+    const missingFields = requiredFields.filter(field => !req.body[field]?.trim());
+    
+    if (missingFields.length > 0) {
+      return sendError(res, `Missing required fields: ${missingFields.join(', ')}`, 400, 'VALIDATION_ERROR');
+    }
+
+    // Category validation
+    if (!req.body.category_id?.trim() && !req.body.category?.trim()) {
+      return sendError(res, 'Category is required', 400, 'CATEGORY_REQUIRED');
+    }
+
     const updateData = {
-      ...req.body,
-      updated_at: new Date(),
-      published_at: req.body.status === 'published' && !req.body.published_at ? new Date() : req.body.published_at
+      title_tr: req.body.title_tr.trim(),
+      title_en: req.body.title_en.trim(),
+      slug_tr: req.body.slug_tr?.trim() || generateSlug(req.body.title_tr),
+      slug_en: req.body.slug_en?.trim() || generateSlug(req.body.title_en),
+      excerpt_tr: req.body.excerpt_tr.trim(),
+      excerpt_en: req.body.excerpt_en.trim(),
+      content_tr: req.body.content_tr.trim(),
+      content_en: req.body.content_en.trim(),
+      imageUrl: req.body.featured_image || req.body.imageUrl,
+      imageAltText_tr: req.body.image_alt_tr,
+      imageAltText_en: req.body.image_alt_en,
+      category: req.body.category_id || req.body.category,
+      status: req.body.status || 'draft',
+      isFeatured: req.body.is_featured || false,
+      readTime: req.body.read_time || 3,
+      tags: req.body.tags_tr || [],
+      seo: {
+        metaTitle_tr: req.body.meta_title_tr,
+        metaTitle_en: req.body.meta_title_en,
+        metaDescription_tr: req.body.meta_description_tr,
+        metaDescription_en: req.body.meta_description_en,
+        keywords: req.body.meta_keywords_tr ? req.body.meta_keywords_tr.split(',') : []
+      },
+      lastModified: new Date(),
+      publishedAt: req.body.status === 'published' && !req.body.published_at ? new Date() : req.body.published_at
     };
+
+    console.log('Updating post with data:', updateData);
 
     const post = await Post.findByIdAndUpdate(
       id,
@@ -197,7 +292,14 @@ async function updatePost(req, res, id) {
     sendSuccess(res, { post }, 'Post updated successfully');
   } catch (error) {
     console.error('Update post error:', error);
-    sendError(res, 'Failed to update post', 500);
+    
+    // Handle validation errors
+    if (error.name === 'ValidationError') {
+      const validationErrors = Object.values(error.errors).map(err => err.message);
+      return sendError(res, `Validation failed: ${validationErrors.join(', ')}`, 400, 'VALIDATION_ERROR');
+    }
+    
+    sendError(res, 'Failed to update post: ' + error.message, 500);
   }
 }
 
