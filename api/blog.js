@@ -80,27 +80,56 @@ async function getPosts(req, res) {
 
     const skip = (parseInt(page) - 1) * parseInt(limit);
 
+    // Güvenli populate - hata durumunda devam et
     const posts = await Post.find(query)
-      .populate('category', 'name_tr name_en slug_tr slug_en')
-      .populate('author', 'firstName lastName')
+      .populate({
+        path: 'category',
+        select: 'name_tr name_en slug_tr slug_en',
+        options: { strictPopulate: false }
+      })
+      .populate({
+        path: 'author',
+        select: 'firstName lastName',
+        options: { strictPopulate: false }
+      })
       .sort({ publishedAt: -1 })
       .skip(skip)
-      .limit(parseInt(limit));
+      .limit(parseInt(limit))
+      .lean(); // Performans için lean() kullan
 
     const total = await Post.countDocuments(query);
 
     const formattedPosts = posts.map(post => ({
       _id: post._id,
+      id: post._id, // Frontend için ID ekleme
+      title_tr: post.title_tr,
+      title_en: post.title_en,
       title: language === 'en' ? post.title_en : post.title_tr,
+      slug_tr: post.slug_tr,
+      slug_en: post.slug_en,
       slug: language === 'en' ? post.slug_en : post.slug_tr,
+      excerpt_tr: post.excerpt_tr,
+      excerpt_en: post.excerpt_en,
       excerpt: language === 'en' ? post.excerpt_en : post.excerpt_tr,
+      content_tr: post.content_tr,
+      content_en: post.content_en,
       imageUrl: post.imageUrl,
-      category: post.category,
-      author: post.author,
-      readTime: post.readTime,
-      views: post.views,
+      featured_image: post.imageUrl,
+      category: post.category || null,
+      categories: post.category || null,
+      author: post.author || { firstName: 'Oğuz', lastName: 'Yolyapan' },
+      readTime: post.readTime || 3,
+      read_time: post.readTime || 3,
+      views: post.views || 0,
+      view_count: post.views || 0,
+      status: post.status,
+      is_featured: post.isFeatured || false,
       publishedAt: post.publishedAt,
-      createdAt: post.createdAt
+      published_at: post.publishedAt,
+      createdAt: post.createdAt,
+      created_at: post.createdAt,
+      updatedAt: post.updatedAt,
+      updated_at: post.updatedAt
     }));
 
     sendSuccess(res, {
@@ -114,7 +143,7 @@ async function getPosts(req, res) {
     });
   } catch (error) {
     console.error('Get posts error:', error);
-    sendError(res, 'Failed to fetch posts', 500);
+    sendError(res, 'Failed to fetch posts: ' + error.message, 500);
   }
 }
 
