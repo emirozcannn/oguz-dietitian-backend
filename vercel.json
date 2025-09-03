@@ -7,8 +7,8 @@
     "CORS_ORIGIN": "https://www.oguzyolyapan.com"
   },
   "functions": {
-    "api/**/*.js": {
-      "runtime": "@vercel/node"
+    "api/*.js": {
+      "runtime": "nodejs20.x"
     }
   },
   "rewrites": [
