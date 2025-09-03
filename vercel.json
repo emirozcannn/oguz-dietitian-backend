@@ -6,11 +6,6 @@
     "JWT_SECRET": "oguz-dietitian-super-secret-jwt-key-2025-production-ready",
     "CORS_ORIGIN": "https://www.oguzyolyapan.com"
   },
-  "functions": {
-    "api/*.js": {
-      "runtime": "nodejs20.x"
-    }
-  },
   "rewrites": [
     {
       "source": "/api/auth/:path*",
