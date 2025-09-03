@@ -44,12 +44,12 @@ const ContactManager = () => {
 
   const updateMessageStatus = async (messageId, status) => {
     try {
-      const { error } = await supabase
-        .from('contact_messages')
-        .update({ status })
-        .eq('id', messageId);
+      const response = await apiClient.request(`/api/admin/contacts/${messageId}/status`, {
+        method: 'PATCH',
+        data: { status }
+      });
 
-      if (error) throw error;
+      if (!response.success) throw new Error(response.error);
       loadData();
     } catch (error) {
       console.error('Error updating message status:', error);
@@ -59,12 +59,12 @@ const ContactManager = () => {
 
   const updateMessagePriority = async (messageId, priority) => {
     try {
-      const { error } = await supabase
-        .from('contact_messages')
-        .update({ priority })
-        .eq('id', messageId);
+      const response = await apiClient.request(`/api/admin/contacts/${messageId}/priority`, {
+        method: 'PATCH',
+        data: { priority }
+      });
 
-      if (error) throw error;
+      if (!response.success) throw new Error(response.error);
       loadData();
     } catch (error) {
       console.error('Error updating message priority:', error);
@@ -74,12 +74,12 @@ const ContactManager = () => {
 
   const markAsRead = async (messageId) => {
     try {
-      const { error } = await supabase
-        .from('contact_messages')
-        .update({ is_read: true })
-        .eq('id', messageId);
+      const response = await apiClient.request(`/api/admin/contacts/${messageId}/read`, {
+        method: 'PATCH',
+        data: { is_read: true }
+      });
 
-      if (error) throw error;
+      if (!response.success) throw new Error(response.error);
       loadData();
     } catch (error) {
       console.error('Error marking message as read:', error);
@@ -91,17 +91,17 @@ const ContactManager = () => {
     if (!selectedMessage || !replyMessage.trim()) return;
 
     try {
-      const { error } = await supabase
-        .from('contact_messages')
-        .update({
+      const response = await apiClient.request(`/api/admin/contacts/${selectedMessage.id}/reply`, {
+        method: 'POST',
+        data: {
           reply_message: replyMessage,
           reply_date: new Date().toISOString(),
           is_replied: true,
           status: 'resolved'
-        })
-        .eq('id', selectedMessage.id);
+        }
+      });
 
-      if (error) throw error;
+      if (!response.success) throw new Error(response.error);
 
       setShowReplyModal(false);
       setReplyMessage('');
@@ -116,12 +116,11 @@ const ContactManager = () => {
   const deleteMessage = async (messageId) => {
     if (window.confirm('Bu mesajı silmek istediğinizden emin misiniz?')) {
       try {
-        const { error } = await supabase
-          .from('contact_messages')
-          .delete()
-          .eq('id', messageId);
+        const response = await apiClient.request(`/api/admin/contacts/${messageId}`, {
+          method: 'DELETE'
+        });
 
-        if (error) throw error;
+        if (!response.success) throw new Error(response.error);
         loadData();
       } catch (error) {
         console.error('Error deleting message:', error);

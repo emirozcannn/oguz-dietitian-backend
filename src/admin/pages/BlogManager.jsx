@@ -166,13 +166,17 @@ const BlogManager = () => {
     try {
       setLoading(true);
       setError(null);
-      const response = await apiClient.getAllPosts('tr', null, null, filterStatus);
+      
+      // Admin paneli için getAllPostsAdmin kullan (tüm durumlar için)
+      const response = await apiClient.getAllPostsAdmin(filterStatus, 1, 50);
       
       if (!response || !response.success) {
         throw new Error(response?.message || 'Veri alınamadı');
       }
       
-      const postsData = Array.isArray(response.data) ? response.data : [];
+      // Backend'den gelen veri yapısı: { posts: [...], pagination: {...} }
+      const postsData = Array.isArray(response.data?.posts) ? response.data.posts : 
+                       Array.isArray(response.data) ? response.data : [];
       setPosts(postsData);
       
       // Update stats
@@ -197,7 +201,10 @@ const BlogManager = () => {
       const response = await apiClient.getCategories();
       
       if (response.success) {
-        setCategories(response.data || []);
+        // Backend'den gelen veri yapısı: { categories: [...] } veya doğrudan array
+        const categoriesData = Array.isArray(response.data?.categories) ? response.data.categories : 
+                              Array.isArray(response.data) ? response.data : [];
+        setCategories(categoriesData);
       } else {
         // Fallback to demo categories if API fails
         setCategories([

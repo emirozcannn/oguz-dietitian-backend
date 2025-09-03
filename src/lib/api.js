@@ -205,26 +205,33 @@ class ApiClient {
     return this.request(`/api/blog?${params}`);
   }
 
+  // Admin-specific method for getting all posts (including drafts)
+  async getAllPostsAdmin(status = 'all', page = 1, limit = 20, search = '') {
+    const params = new URLSearchParams({ status, page, limit });
+    if (search) params.append('search', search);
+    return this.request(`/api/admin/blog?${params}`);
+  }
+
   async getPostBySlug(slug, language = 'tr') {
     return this.request(`/api/blog/${slug}?language=${language}`);
   }
 
   async createPost(postData) {
-    return this.request('/api/blog', {
+    return this.request('/api/admin/blog', {
       method: 'POST',
       body: postData
     });
   }
 
   async updatePost(id, postData) {
-    return this.request(`/api/blog/${id}`, {
+    return this.request(`/api/admin/blog/${id}`, {
       method: 'PUT',
       body: postData
     });
   }
 
   async deletePost(id) {
-    return this.request(`/api/blog/${id}`, {
+    return this.request(`/api/admin/blog/${id}`, {
       method: 'DELETE'
     });
   }

@@ -22,6 +22,14 @@ module.exports = async function handler(req, res) {
       return await getDashboard(req, res);
     }
 
+    // Blog admin endpoints
+    if (segments[0] === 'blog') {
+      if (method === 'GET') return await getBlogPosts(req, res);
+      if (method === 'POST') return await createBlogPost(req, res);
+      if (method === 'PUT' && segments[1]) return await updateBlogPost(req, res, segments[1]);
+      if (method === 'DELETE' && segments[1]) return await deleteBlogPost(req, res, segments[1]);
+    }
+
     // Contacts endpoints
     if (segments[0] === 'contacts') {
       if (method === 'GET') return await getContacts(req, res);
@@ -338,5 +346,122 @@ async function performBulkAction(req, res) {
   } catch (error) {
     console.error('Perform bulk action error:', error);
     sendError(res, 'Failed to perform bulk action', 500);
+  }
+}
+
+// Blog Admin Functions
+async function getBlogPosts(req, res) {
+  try {
+    const { 
+      status = 'all',
+      page = 1, 
+      limit = 20,
+      search = '',
+      category,
+      author 
+    } = req.query;
+
+    const query = {};
+    
+    if (status !== 'all') query.status = status;
+    if (category) query.category = category;
+    if (author) query.author = author;
+    if (search) {
+      query.$or = [
+        { title_tr: { $regex: search, $options: 'i' } },
+        { title_en: { $regex: search, $options: 'i' } },
+        { content_tr: { $regex: search, $options: 'i' } },
+        { content_en: { $regex: search, $options: 'i' } }
+      ];
+    }
+
+    const skip = (parseInt(page) - 1) * parseInt(limit);
+
+    const posts = await Post.find(query)
+      .populate('category', 'name_tr name_en')
+      .populate('author', 'firstName lastName email')
+      .sort({ created_at: -1 })
+      .skip(skip)
+      .limit(parseInt(limit));
+
+    const total = await Post.countDocuments(query);
+
+    sendSuccess(res, {
+      posts,
+      pagination: {
+        page: parseInt(page),
+        limit: parseInt(limit),
+        total,
+        pages: Math.ceil(total / parseInt(limit))
+      }
+    });
+  } catch (error) {
+    console.error('Get blog posts error:', error);
+    sendError(res, 'Failed to fetch blog posts', 500);
+  }
+}
+
+async function createBlogPost(req, res) {
+  try {
+    const postData = req.body;
+    
+    // Varsayılan değerler
+    const newPost = new Post({
+      ...postData,
+      author: '674bc89c5fc7529b6a2b3c3b', // Default admin ID
+      created_at: new Date(),
+      updated_at: new Date(),
+      published_at: postData.status === 'published' ? new Date() : null,
+      view_count: 0,
+      like_count: 0,
+      comment_count: 0
+    });
+
+    const savedPost = await newPost.save();
+    
+    sendSuccess(res, savedPost, 'Blog post created successfully');
+  } catch (error) {
+    console.error('Create blog post error:', error);
+    sendError(res, 'Failed to create blog post', 500);
+  }
+}
+
+async function updateBlogPost(req, res, postId) {
+  try {
+    const postData = req.body;
+    
+    const updatedPost = await Post.findByIdAndUpdate(
+      postId,
+      {
+        ...postData,
+        updated_at: new Date(),
+        published_at: postData.status === 'published' && !postData.published_at ? new Date() : postData.published_at
+      },
+      { new: true }
+    ).populate('category', 'name_tr name_en');
+
+    if (!updatedPost) {
+      return sendError(res, 'Blog post not found', 404, 'POST_NOT_FOUND');
+    }
+
+    sendSuccess(res, updatedPost, 'Blog post updated successfully');
+  } catch (error) {
+    console.error('Update blog post error:', error);
+    sendError(res, 'Failed to update blog post', 500);
+  }
+}
+
+async function deleteBlogPost(req, res, postId) {
+  try {
+    const deletedPost = await Post.findByIdAndDelete(postId);
+
+    if (!deletedPost) {
+      return sendError(res, 'Blog post not found', 404, 'POST_NOT_FOUND');
+    }
+
+    sendSuccess(res, { id: postId }, 'Blog post deleted successfully');
+  } catch (error) {
+    console.error('Delete blog post error:', error);
+    sendError(res, 'Failed to delete blog post', 500);
   }
 }
