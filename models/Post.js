@@ -62,13 +62,8 @@ const postSchema = new mongoose.Schema({
   category: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Category',
-    required: [true, 'Category is required'],
-    validate: {
-      validator: function(v) {
-        return v != null && v.toString().length > 0;
-      },
-      message: 'Please select a valid category'
-    }
+    required: false, // Geçici olarak optional - eski yazılar için
+    default: null
   },
   author: {
     type: mongoose.Schema.Types.ObjectId,

@@ -166,17 +166,20 @@ async function createPost(req, res) {
     // const authResult = await adminAuth(req, res);
     // if (!authResult) return;
 
-    // Required field validation
-    const requiredFields = ['title_tr', 'title_en', 'content_tr', 'content_en', 'excerpt_tr', 'excerpt_en'];
+    // Required field validation - sadece temel alanları kontrol et
+    const requiredFields = ['title_tr', 'title_en', 'content_tr', 'content_en'];
     const missingFields = requiredFields.filter(field => !req.body[field]?.trim());
     
     if (missingFields.length > 0) {
       return sendError(res, `Missing required fields: ${missingFields.join(', ')}`, 400, 'VALIDATION_ERROR');
     }
 
-    // Category validation
-    if (!req.body.category_id?.trim() && !req.body.category?.trim()) {
-      return sendError(res, 'Category is required', 400, 'CATEGORY_REQUIRED');
+    // Category validation - daha esnek: varsa kullan, yoksa null
+    let categoryId = null;
+    if (req.body.category_id && req.body.category_id.trim()) {
+      categoryId = req.body.category_id;
+    } else if (req.body.category && req.body.category.trim()) {
+      categoryId = req.body.category;
     }
 
     const postData = {
@@ -184,14 +187,14 @@ async function createPost(req, res) {
       title_en: req.body.title_en.trim(),
       slug_tr: req.body.slug_tr?.trim() || generateSlug(req.body.title_tr),
       slug_en: req.body.slug_en?.trim() || generateSlug(req.body.title_en),
-      excerpt_tr: req.body.excerpt_tr.trim(),
-      excerpt_en: req.body.excerpt_en.trim(),
+      excerpt_tr: req.body.excerpt_tr?.trim() || '',
+      excerpt_en: req.body.excerpt_en?.trim() || '',
       content_tr: req.body.content_tr.trim(),
       content_en: req.body.content_en.trim(),
       imageUrl: req.body.featured_image || req.body.imageUrl,
       imageAltText_tr: req.body.image_alt_tr,
       imageAltText_en: req.body.image_alt_en,
-      category: req.body.category_id || req.body.category,
+      category: categoryId, // null olabilir
       author: '674bc89c5fc7529b6a2b3c3b', // Default admin ID
       status: req.body.status || 'draft',
       isFeatured: req.body.is_featured || false,
@@ -235,16 +238,17 @@ async function updatePost(req, res, id) {
     // if (!authResult) return;
 
     // Required field validation for updates
-    const requiredFields = ['title_tr', 'title_en', 'content_tr', 'content_en', 'excerpt_tr', 'excerpt_en'];
+    const requiredFields = ['title_tr', 'title_en', 'content_tr', 'content_en'];
     const missingFields = requiredFields.filter(field => !req.body[field]?.trim());
     
     if (missingFields.length > 0) {
       return sendError(res, `Missing required fields: ${missingFields.join(', ')}`, 400, 'VALIDATION_ERROR');
     }
 
-    // Category validation
-    if (!req.body.category_id?.trim() && !req.body.category?.trim()) {
-      return sendError(res, 'Category is required', 400, 'CATEGORY_REQUIRED');
+    // Category validation - daha esnek: sadece varsa kontrol et
+    if (req.body.category_id === null || req.body.category_id === undefined) {
+      // Category gönderilmemişse mevcut değeri koru
+      delete req.body.category_id;
     }
 
     const updateData = {
@@ -252,14 +256,13 @@ async function updatePost(req, res, id) {
       title_en: req.body.title_en.trim(),
       slug_tr: req.body.slug_tr?.trim() || generateSlug(req.body.title_tr),
       slug_en: req.body.slug_en?.trim() || generateSlug(req.body.title_en),
-      excerpt_tr: req.body.excerpt_tr.trim(),
-      excerpt_en: req.body.excerpt_en.trim(),
+      excerpt_tr: req.body.excerpt_tr?.trim() || '',
+      excerpt_en: req.body.excerpt_en?.trim() || '',
       content_tr: req.body.content_tr.trim(),
       content_en: req.body.content_en.trim(),
       imageUrl: req.body.featured_image || req.body.imageUrl,
       imageAltText_tr: req.body.image_alt_tr,
       imageAltText_en: req.body.image_alt_en,
-      category: req.body.category_id || req.body.category,
       status: req.body.status || 'draft',
       isFeatured: req.body.is_featured || false,
       readTime: req.body.read_time || 3,
@@ -275,12 +278,19 @@ async function updatePost(req, res, id) {
       publishedAt: req.body.status === 'published' && !req.body.published_at ? new Date() : req.body.published_at
     };
 
+    // Category'i sadece gönderildiyse ekle
+    if (req.body.category_id && req.body.category_id.trim()) {
+      updateData.category = req.body.category_id;
+    } else if (req.body.category && req.body.category.trim()) {
+      updateData.category = req.body.category;
+    }
+
     console.log('Updating post with data:', updateData);
 
     const post = await Post.findByIdAndUpdate(
       id,
       updateData,
-      { new: true, runValidators: true }
+      { new: true, runValidators: false } // Geçici olarak validation'ı kapat
     )
       .populate('category')
       .populate('author', 'firstName lastName');
