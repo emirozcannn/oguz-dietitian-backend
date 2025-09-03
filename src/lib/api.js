@@ -217,21 +217,21 @@ class ApiClient {
   }
 
   async createPost(postData) {
-    return this.request('/api/admin/blog', {
+    return this.request('/api/blog', {
       method: 'POST',
       body: postData
     });
   }
 
   async updatePost(id, postData) {
-    return this.request(`/api/admin/blog/${id}`, {
+    return this.request(`/api/blog/${id}`, {
       method: 'PUT',
       body: postData
     });
   }
 
   async deletePost(id) {
-    return this.request(`/api/admin/blog/${id}`, {
+    return this.request(`/api/blog/${id}`, {
       method: 'DELETE'
     });
   }

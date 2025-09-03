@@ -167,8 +167,8 @@ const BlogManager = () => {
       setLoading(true);
       setError(null);
       
-      // Admin paneli için getAllPostsAdmin kullan (tüm durumlar için)
-      const response = await apiClient.getAllPostsAdmin(filterStatus, 1, 50);
+      // Geçici olarak normal blog endpoint'ini kullan (admin endpoint yerine)
+      const response = await apiClient.getAllPosts('tr', null, 1, filterStatus === 'all' ? 'published' : filterStatus);
       
       if (!response || !response.success) {
         throw new Error(response?.message || 'Veri alınamadı');
